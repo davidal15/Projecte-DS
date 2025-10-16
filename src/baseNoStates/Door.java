@@ -6,19 +6,25 @@ import org.json.JSONObject;
 
 public class Door {
   private final String id;
-  private final String from;
-  private final String to;
+  private final String from; // every door needs to know where it opens from and where it leads
+  private final String to;   // in order to order the Spaces
+  private final String partition;
   private boolean closed; // physically
   private boolean locked; // locked or unlocked door
   private boolean propped; // if unlocked shortly doesn't lock the door, it's propped
+  private boolean unlocked_shortly;
 
-  public Door(String id, String from, String to) {
+
+  public Door(String id, String from, String to, String partition) {
     this.id = id;
     this.from = from;
     this.to = to;
+    this.partition = partition;
     closed = true;
     locked = true;
     propped = false;
+    unlocked_shortly = false;
+
   }
 
   public void processRequest(RequestReader request) {
@@ -69,8 +75,9 @@ public class Door {
         }
         break;
       case Actions.UNLOCK_SHORTLY:
-        if (closed && locked){
+        if (closed && locked) {
           locked = false;
+          unlocked_shortly = true;
           try { //10 second timer, after it, the door is locked if closed
             Thread.sleep(10000); // miliseconds
           } catch (InterruptedException e) {
@@ -82,6 +89,7 @@ public class Door {
             //send alarm
           } else {
             locked = true;
+            unlocked_shortly = false;
           }
 
         } else {
@@ -114,14 +122,26 @@ public class Door {
     return to;
   }
 
+  public String getPartition() {
+    return partition;
+  }
+
   public String getStateName() {
-    return "unlocked";
+    if (locked) {
+      return "locked";
+    }
+    else if (propped) {
+      return "propped";
+    }
+    else  {
+      return "unlocked";
+    }
   }
 
   @Override
   public String toString() {
     return "Door{"
-        + ", id='" + id + '\''
+        + " id='" + id + '\''
         + ", closed=" + closed
         + ", state=" + getStateName()
         + "}";

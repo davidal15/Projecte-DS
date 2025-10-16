@@ -3,32 +3,39 @@ package baseNoStates;
 import java.util.ArrayList;
 
 public final class DirectorySpaces {
-  private static ArrayList<DirectorySpaces> allSpaces;
+  private static ArrayList<Space> allSpaces;
+  private static final String[] spaceNames = {
+      "parking", "room1", "room2", "room3",
+      "hall", "IT", "corridor", "stairs", "exterior"
+  };
 
   public static void makeSpaces() {
-    String[] spaceNames = {
-        "parking", "room1", "room2", "room3",
-        "hall", "IT", "corridor", "stairs", "exterior"
-    };
+    allSpaces = new ArrayList<>();
     for (String name : spaceNames) {
-      new Space(name, findDoorBySpaceId(name));
+      ArrayList<Door> doors = findDoorBySpaceId(name);
+      Space s = new Space(name, doors);
+      allSpaces.add(s);
     }
+    System.out.println("Spaces creados: " + allSpaces.size());
   }
 
-  public static ArrayList<Door> findDoorBySpaceId(String spaceId) { // returns a list with all the doors that connect with selected Space
-    ArrayList<Door> doorList = new ArrayList<>(); // list of doors for each space
-    ArrayList<Door> allDoors = new ArrayList<>();
-    allDoors = DirectoryDoors.getAllDoors(); // gets the list of all Doors from DirectoryDoors
+  public static ArrayList<Door> findDoorBySpaceId(String spaceId) {
+    ArrayList<Door> doorList = new ArrayList<>();
+    ArrayList<Door> allDoors = DirectoryDoors.getAllDoors();
 
     for (Door door : allDoors) {
       if (door.getFrom().equals(spaceId) || door.getTo().equals(spaceId)) {
         doorList.add(door);
       }
     }
+
     if (doorList.isEmpty()) {
-      System.out.println("no doors were found");
-      return null;
+      System.out.println("No doors found for space: " + spaceId);
     }
     return doorList;
+  }
+
+  public static ArrayList<Space> getAllSpaces() {
+    return allSpaces;
   }
 }

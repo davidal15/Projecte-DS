@@ -8,7 +8,7 @@ public class Space extends Area{
     super();
   }
   public Space(String id, ArrayList<Door> doors) {
-    super(id, doors);
+    super(id);
   }
 
 

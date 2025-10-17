@@ -5,18 +5,20 @@ import java.util.ArrayList;
 public final class DirectoryAreas {
   private static ArrayList<Area> allAreas = new ArrayList<>();
 
+
   public static void makeAreas() {
-    // Asegúrate de que las demás listas estén creadas
+    // Creates all Spaces and Partitions
     DirectoryPartitions.makePartitions();
     DirectorySpaces.makeSpaces();
 
-    // Combina todas las áreas
+    // Combines all areas
     allAreas.clear();
     allAreas.addAll(DirectoryPartitions.getAllPartitions());
     allAreas.addAll(DirectorySpaces.getAllSpaces());
   }
 
   public static Area findAreaById(String id) {
+    makeAreas();
     if (id == null) {
       System.out.println("Error: id is null");
       return null;
@@ -28,7 +30,7 @@ public final class DirectoryAreas {
       }
     }
 
-    System.out.println("⚠️ No area found with id: " + id);
+    System.out.println("No area found with id: " + id);
     return null;
   }
 

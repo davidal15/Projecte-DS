@@ -51,7 +51,7 @@ public class Door {
       case Actions.CLOSE:
         if (!closed) {
           closed = true;
-        } else if (!closed && propped) { //used only if door is propped
+        } else if (!closed && propped) { // used only if door is propped
           closed = true;
           propped = false;
           locked = true;
@@ -78,15 +78,15 @@ public class Door {
         if (closed && locked) {
           locked = false;
           unlocked_shortly = true;
-          try { //10 second timer, after it, the door is locked if closed
+          try { // 10 second timer, after it, the door is locked if closed
             Thread.sleep(10000); // miliseconds
           } catch (InterruptedException e) {
             e.printStackTrace();
           }
-          if (!closed) { //if the door is not closed after 10 seconds, it is propped
+          if (!closed) { // if the door is not closed after 10 seconds, it is propped
             propped = true;
-            //while propped
-            //send alarm
+            // while propped
+            // send alarm
           } else {
             locked = true;
             unlocked_shortly = false;

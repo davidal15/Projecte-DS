@@ -9,7 +9,7 @@ public class Partition extends Area{
   }
 
   public Partition(String id, ArrayList<Door> doors) {
-    super(id, doors);
+    super(id);
   }
 
 }

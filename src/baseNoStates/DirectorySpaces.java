@@ -16,7 +16,6 @@ public final class DirectorySpaces {
       Space s = new Space(name, doors);
       allSpaces.add(s);
     }
-    System.out.println("Spaces creados: " + allSpaces.size());
   }
 
   public static ArrayList<Door> findDoorBySpaceId(String spaceId) {

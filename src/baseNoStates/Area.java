@@ -16,8 +16,13 @@ public class Area {
     this.doors = new ArrayList<>();
   }
 
+
   public String getId() {
     return id;
+  }
+
+  public void setDoors(ArrayList<Door> doors) {
+    this.doors = doors;
   }
 
   public ArrayList<Door> getDoorsGivingAccess() {

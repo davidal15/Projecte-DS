@@ -11,8 +11,12 @@ public final class DirectoryAreas {
     DirectoryPartitions.makePartitions();
     DirectorySpaces.makeSpaces();
 
-    // Combines all areas
     allAreas.clear();
+
+    Area area = new Area("building");
+    area.setDoors(DirectoryDoors.getAllDoors());
+    // Combines all areas
+    allAreas.add(area);
     allAreas.addAll(DirectoryPartitions.getAllPartitions());
     allAreas.addAll(DirectorySpaces.getAllSpaces());
   }

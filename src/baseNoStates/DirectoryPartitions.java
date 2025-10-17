@@ -15,7 +15,6 @@ public final class DirectoryPartitions {
       Partition p = new Partition(name, doors);
       allPartitions.add(p);
     }
-    System.out.println("Partitions creadas: " + allPartitions.size());
   }
 
   public static ArrayList<Door> findDoorByPartitionId(String partitionName) {

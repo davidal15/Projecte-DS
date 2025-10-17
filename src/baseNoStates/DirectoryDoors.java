@@ -18,9 +18,9 @@ public final class DirectoryDoors {
     Door d6 = new Door("D6", "hall", "room2", "ground floor"); // hall, room2
 
     // first floor
-    Door d7 = new Door("D7", "stairs", "corridor", "first floor"); // stairs, corridor
-    Door d8 = new Door("D8", "corridor", "room3", "first floor"); // corridor, room3
-    Door d9 = new Door("D9", "corridor", "IT", "first floor"); // corridor, IT
+    Door d7 = new Door("D7", "stairs", "corridor", "floor 1"); // stairs, corridor
+    Door d8 = new Door("D8", "corridor", "room3", "floor 1"); // corridor, room3
+    Door d9 = new Door("D9", "corridor", "IT", "floor 1"); // corridor, IT
 
     allDoors = new ArrayList<>(Arrays.asList(d1, d2, d3, d4, d5, d6, d7, d8, d9));
   }

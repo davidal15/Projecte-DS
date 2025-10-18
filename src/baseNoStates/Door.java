@@ -23,8 +23,6 @@ public class Door {
     closed = true;
     locked = true;
     propped = false;
-    unlocked_shortly = false;
-
   }
 
   public void processRequest(RequestReader request) {
@@ -75,26 +73,6 @@ public class Door {
         }
         break;
       case Actions.UNLOCK_SHORTLY:
-        if (closed && locked) {
-          locked = false;
-          unlocked_shortly = true;
-          try { // 10 second timer, after it, the door is locked if closed
-            Thread.sleep(10000); // miliseconds
-          } catch (InterruptedException e) {
-            e.printStackTrace();
-          }
-          if (!closed) { // if the door is not closed after 10 seconds, it is propped
-            propped = true;
-            // while propped
-            // send alarm
-          } else {
-            locked = true;
-            unlocked_shortly = false;
-          }
-
-        } else {
-          System.out.println("Can't unlock door " + id + ", it's already unlocked or open");
-        }
         break;
       default:
         assert false : "Unknown action " + action;
@@ -133,8 +111,11 @@ public class Door {
     else if (propped) {
       return "propped";
     }
-    else  {
-      return "unlocked";
+    else if (unlocked_shortly) {
+      return "unlocked shortly";
+    }
+    else {
+        return "unlocked";
     }
   }
 

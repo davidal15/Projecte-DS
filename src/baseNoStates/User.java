@@ -14,6 +14,7 @@ public class User {
   public String getCredential() {
     return credential;
   }
+  public String getRole() { return role; }
 
   @Override
   public String toString() {

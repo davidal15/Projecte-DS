@@ -21,8 +21,7 @@ public final class DirectoryAreas {
     allAreas.addAll(DirectorySpaces.getAllSpaces());
   }
 
-  public static Area findAreaById(String id) {
-    makeAreas();
+  public static Area findAreaById(String id) { // Searches the area passed by parameter    makeAreas();
     if (id == null) {
       System.out.println("Error: id is null");
       return null;

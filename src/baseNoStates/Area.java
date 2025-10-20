@@ -2,10 +2,10 @@ package baseNoStates;
 
 import java.util.ArrayList;
 
-public class Area {
-  private String id;
-  private ArrayList<Door> doors;
-  // hash map?
+public class Area { // Father class for Space and Partition, since each Area is either.
+  private final String id;
+  private ArrayList<Door> doors; // List of every door that leads to the Area
+
   public Area() {
     this.id = "";
     this.doors = new ArrayList<>();
@@ -25,9 +25,9 @@ public class Area {
     this.doors = doors;
   }
 
-  public ArrayList<Door> getDoorsGivingAccess() {
+  public ArrayList<Door> getDoorsGivingAccess() { // Returns a list of Door included in a certain Area
     ArrayList<Door> allDoors = DirectoryDoors.getAllDoors();
-    if (this.id.equals("building")) {
+    if (this.id.equals("building")) { // if the Area searched is building, all the doors are included
       return allDoors;
     } else {
       for (Door door : allDoors) {

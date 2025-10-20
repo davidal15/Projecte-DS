@@ -18,13 +18,13 @@ public final class DirectorySpaces {
     }
   }
 
-  public static ArrayList<Door> findDoorBySpaceId(String spaceId) {
+  public static ArrayList<Door> findDoorBySpaceId(String spaceId) { // Returns a list of Door that lead to the Space by parameter
     ArrayList<Door> doorList = new ArrayList<>();
     ArrayList<Door> allDoors = DirectoryDoors.getAllDoors();
 
     for (Door door : allDoors) {
-      if (door.getFrom().equals(spaceId) || door.getTo().equals(spaceId)) {
-        doorList.add(door);
+      if (door.getFrom().equals(spaceId) || door.getTo().equals(spaceId)) { // if the Door goes from or to the Space
+        doorList.add(door); // it's added to the list
       }
     }
 

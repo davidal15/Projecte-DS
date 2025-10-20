@@ -53,8 +53,7 @@ public class Door {
           closed = true;
           propped = false;
           locked = true;
-        }
-        else {
+        } else {
           System.out.println("Can't close door " + id + ", it's already closed");
         }
         break;
@@ -92,11 +91,11 @@ public class Door {
     return id;
   }
 
-  public String getFrom() { //returns origin
+  public String getFrom() { // returns origin
     return from;
   }
 
-  public String getTo() { //returns destination
+  public String getTo() { // returns destination
     return to;
   }
 
@@ -107,16 +106,12 @@ public class Door {
   public String getStateName() {
     if (locked) {
       return "locked";
-    }
-    else if (propped) {
+    } else if (propped) {
       return "propped";
-    }
-    else if (unlocked_shortly) {
+    } else if (unlocked_shortly) {
       return "unlocked shortly";
     }
-    else {
-        return "unlocked";
-    }
+    return "unlocked";
   }
 
   @Override

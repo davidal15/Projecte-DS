@@ -5,10 +5,10 @@ import java.util.ArrayList;
 public final class DirectoryPartitions {
   private static ArrayList<Partition> allPartitions;
   private static final String[] partitionNames = {
-      "basement", "ground floor", "floor 1"
+      "basement", "ground_floor", "floor1"
   };
 
-  public static void makePartitions() {
+  public static void makePartitions() { // Creates every Partition. Gives them an id and a list of Door that give access to it
     allPartitions = new ArrayList<>();
     for (String name : partitionNames) {
       ArrayList<Door> doors = findDoorByPartitionId(name);
@@ -17,8 +17,8 @@ public final class DirectoryPartitions {
     }
   }
 
-  public static ArrayList<Door> findDoorByPartitionId(String partitionName) {
-    ArrayList<Door> doorList = new ArrayList<>();
+  public static ArrayList<Door> findDoorByPartitionId(String partitionName) { // Returns every door for the Partition
+    ArrayList<Door> doorList = new ArrayList<>();                             // passed by parameter
     ArrayList<Door> allDoors = DirectoryDoors.getAllDoors();
 
     for (Door door : allDoors) {

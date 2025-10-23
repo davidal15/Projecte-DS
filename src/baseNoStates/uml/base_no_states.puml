@@ -42,10 +42,46 @@ class DirectoryUsers {
 
 DirectoryUsers --> "*" User : "users"
 
+class DirectorySpaces {
+-{static} allSpaces : Space[]
+-{static} spaceNames : String[]
++{static} makeSpaces()
++{static} findDoorBySpaceId(id : String) : Door[]
++{static} getAllSpaces() : Space[]
+}
+
+DirectorySpaces --> "*" Space : "allSpaces"
+
+class DirectoryPartitions {
+-{static} allPartitions : Partition[]
+-{static} partitionNames : String[]
++{static} makePartitions()
++{static} findDoorByPartitionId(id : String) : Door[]
++{static} getAllPartitions() : Partition[]
+}
+
+DirectoryPartitions --> "*" Partition : "allPartitions"
+
+class DirectoryAreas {
+- {static} allAreas : Area[]
++ {static} makeAreas()
++ {static} findAreaById(id : String) : Area
+
+}
+
+DirectoryAreas --> "*" Area : "allAreas"
+
+
 class Door {
 - id : String
+- from : String
+- to : String
+- partition : String
 - closed : boolean
-+ Door(id : String)
+- locked : boolean
+- propped : boolean
+- unlocked_shortly : boolean
++ Door(id : String, from : String, to : String, partition : String)
 + processRequest(request : RequestReader)
 + setState(doorState : DoorState)
 + toJson() : JSONObject
@@ -64,6 +100,23 @@ class User {
 + toString() : String
 }
 
+class Space {
++ Space()
+}
+
+class Partition {
+}
+
+class Area {
+- id : String
+- doors : Door[]
++ Area()
++ Area(id : String)
++ getDoorsGivingAccess() : Door[]
+}
+
+Area <|-- Space
+Area <|-- Partition
 
 class Main {
 + {static} main(args : String)

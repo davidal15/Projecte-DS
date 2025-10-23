@@ -36,7 +36,4 @@ public final class DirectoryAreas {
     return null;
   }
 
-  public static ArrayList<Area> getAllAreas() {
-    return allAreas;
-  }
 }

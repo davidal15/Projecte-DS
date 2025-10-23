@@ -8,8 +8,8 @@ public class Main {
     DirectoryDoors.makeDoors();
     DirectoryUsers.makeUsers();
     DirectoryAreas.makeAreas();
-    Area a = new Area("hall");
-    System.out.println(a.getDoorsGivingAccess());
+    // Area a = new Area("hall");
+    // System.out.println(a.getDoorsGivingAccess());
     new WebServer();
   }
 }

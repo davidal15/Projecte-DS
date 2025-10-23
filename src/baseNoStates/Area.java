@@ -6,12 +6,12 @@ public class Area { // Father class for Space and Partition, since each Area is 
   private final String id;
   private ArrayList<Door> doors; // List of every door that leads to the Area
 
-  public Area() {
+  public Area() { // Default constructor
     this.id = "";
     this.doors = new ArrayList<>();
   }
 
-  public Area(String id) {
+  public Area(String id) { // Constructor with id, used to create an area with a certain id
     this.id = id;
     this.doors = new ArrayList<>();
   }
@@ -21,7 +21,7 @@ public class Area { // Father class for Space and Partition, since each Area is 
     return id;
   }
 
-  public void setDoors(ArrayList<Door> doors) {
+  public void setDoors(ArrayList<Door> doors) { // Sets a doorList to an Area
     this.doors = doors;
   }
 
@@ -32,7 +32,7 @@ public class Area { // Father class for Space and Partition, since each Area is 
     } else {
       for (Door door : allDoors) {
         if (door.getPartition().equals(id) || door.getFrom().equals(id) || door.getTo().equals(id)) {
-          this.doors.add(door);
+          this.doors.add(door); // if the Door pertains to this Area, it's added to the list
         }
       }
       if (this.doors.isEmpty()) {

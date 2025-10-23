@@ -6,14 +6,13 @@ public final class DirectoryAreas {
   private static ArrayList<Area> allAreas = new ArrayList<>();
 
 
-  public static void makeAreas() {
-    // Creates all Spaces and Partitions
+  public static void makeAreas() { // Creates all Spaces and Partitions
     DirectoryPartitions.makePartitions();
     DirectorySpaces.makeSpaces();
 
     allAreas.clear();
 
-    Area area = new Area("building");
+    Area area = new Area("building"); // This creates the area Building, which contains every Partition, Space and Door
     area.setDoors(DirectoryDoors.getAllDoors());
     // Combines all areas
     allAreas.add(area);
@@ -21,7 +20,7 @@ public final class DirectoryAreas {
     allAreas.addAll(DirectorySpaces.getAllSpaces());
   }
 
-  public static Area findAreaById(String id) { // Searches the area passed by parameter    makeAreas();
+  public static Area findAreaById(String id) { // Searches the area passed by parameter
     if (id == null) {
       System.out.println("Error: id is null");
       return null;

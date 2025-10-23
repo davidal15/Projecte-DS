@@ -56,15 +56,15 @@ public class RequestReader implements Request {
       userName = "unknown";
     }
     return "Request{"
-            + "credential=" + credential
-            + ", userName=" + userName
-            + ", action=" + action
-            + ", now=" + now
-            + ", doorID=" + doorId
-            + ", authorized="
+        + "credential=" + credential
+        + ", userName=" + userName
+        + ", action=" + action
+        + ", now=" + now
+        + ", doorID=" + doorId
+        + ", authorized="
         + ", closed=" + doorClosed + authorized
-            + ", reasons=" + reasons
-            + "}";
+        + ", reasons=" + reasons
+        + "}";
   }
 
   public JSONObject answerToJson() {
@@ -83,10 +83,13 @@ public class RequestReader implements Request {
   public void process() {
     User user = DirectoryUsers.findUserByCredential(credential);
     Door door = DirectoryDoors.findDoorById(doorId);
+
     assert door != null : "door " + doorId + " not found";
     authorize(user, door);
+
     // this sets the boolean authorize attribute of the request
     door.processRequest(this);
+
     // even if not authorized we process the request, so that if desired we could log all
     // the requests made to the server as part of processing the request
     doorClosed = door.isClosed();
@@ -99,99 +102,104 @@ public class RequestReader implements Request {
       authorized = false;
       addReason("user doesn't exists");
     } else {
-      //TODO: get the who, where, when and what in order to decide, and if not
-      // authorized add the reason(s)
       String role = user.getRole();
       LocalDateTime when = now;
+
       switch (role) {
-          case "Admin":
-              authorized = true;
-              break;
-          case "Manager":
-              boolean valid = true;
-              // Date range inclusive: [2025-09-01, 2026-03-01]
-              LocalDate startDate = LocalDate.of(2025, 9, 1);
-              LocalDate endDate   = LocalDate.of(2026, 3, 1);
+        case "Admin":
+          authorized = true;
+          break;
 
-              LocalDate d = when.toLocalDate();
+        case "Manager":
+          boolean valid = true;
 
-              if (d.isBefore(startDate) || d.isAfter(endDate)) {
-                  valid = false;
-                  addReason("Present date not in Manager schedule [2025-09-01..2026-03-01]");
-              }
-              // Day of week: Monday..Saturday
+          // Date range inclusive: [2025-09-01, 2026-03-01]
+          LocalDate startDate = LocalDate.of(2025, 9, 1);
+          LocalDate endDate = LocalDate.of(2026, 3, 1);
+          LocalDate d = when.toLocalDate();
 
-              DayOfWeek dow = when.getDayOfWeek();
-              if (dow == DayOfWeek.SUNDAY) {
-                  valid = false;
-                  addReason("Present day of week not in Manager schedule [Mon–Sat]");
-              }
+          if (d.isBefore(startDate) || d.isAfter(endDate)) {
+            valid = false;
+            addReason("Present date not in Manager schedule [2025-09-01..2026-03-01]");
+          }
 
-              // Time window: [08:00, 20:00)
-              LocalTime start = LocalTime.of(8, 0);
-              LocalTime end   = LocalTime.of(20, 0);
+          // Day of week: Monday..Saturday
+          DayOfWeek dow = when.getDayOfWeek();
+          if (dow == DayOfWeek.SUNDAY) {
+            valid = false;
+            addReason("Present day of week not in Manager schedule [Mon–Sat]");
+          }
 
-              LocalTime t = when.toLocalTime();
-              if (valid && (t.isBefore(start) || !t.isBefore(end))) {
-                  valid = false;
-                  addReason("Present time not in Manager schedule [08:00..20:00]");
-              }
-              // Actions: all are allowed for Manager
-              // Spaces: all spaces allowed for Manager; no need to check partition/space
+          // Time window: [08:00, 20:00)
+          LocalTime start = LocalTime.of(8, 0);
+          LocalTime end = LocalTime.of(20, 0);
+          LocalTime t = when.toLocalTime();
 
-              authorized = valid;
-              break;
-          case "Employee":
-              boolean validE = true;
-              // Date range inclusive: [2025-09-01, 2026-03-01]
-              LocalDate startDateE = LocalDate.of(2025, 9, 1);
-              LocalDate endDateE   = LocalDate.of(2026, 3, 1);
+          if (valid && (t.isBefore(start) || !t.isBefore(end))) {
+            valid = false;
+            addReason("Present time not in Manager schedule [08:00..20:00]");
+          }
 
-              LocalDate dE = when.toLocalDate();
+          // Actions: all are allowed for Manager
+          // Spaces: all spaces allowed for Manager; no need to check partition/space
+          authorized = valid;
+          break;
 
-              if (dE.isBefore(startDateE) || dE.isAfter(endDateE)) {
-                  validE = false;
-                  addReason("Present date not in Employee schedule [2025-09-01..2026-03-01]");
-              }
-              // Day of week: Monday..Saturday
+        case "Employee":
+          boolean validE = true;
 
-              DayOfWeek dowE = when.getDayOfWeek();
-              if (dowE == DayOfWeek.SUNDAY || dowE == DayOfWeek.SATURDAY) {
-                  validE = false;
-                  addReason("Present day of week not in Employee schedule [Mon–Sat]");
-              }
+          // Date range inclusive: [2025-09-01, 2026-03-01]
+          LocalDate startDateE = LocalDate.of(2025, 9, 1);
+          LocalDate endDateE = LocalDate.of(2026, 3, 1);
+          LocalDate dE = when.toLocalDate();
 
-              // Time window: [08:00, 20:00)
-              LocalTime startE = LocalTime.of(9, 0);
-              LocalTime endE   = LocalTime.of(17, 0);
+          if (dE.isBefore(startDateE) || dE.isAfter(endDateE)) {
+            validE = false;
+            addReason("Present date not in Employee schedule [2025-09-01..2026-03-01]");
+          }
 
-              LocalTime tE = when.toLocalTime();
-              if (validE && (tE.isBefore(startE) || !tE.isBefore(endE))) {
-                  validE = false;
-                  addReason("Present time not in Employee schedule [09:00..17:00]");
-              }
-              if(action.equals("lock") || action.equals("unlock")) { // employee can't lock or unlock
-                  validE = false;
-                  addReason("Employees can't lock or unlock doors");
-              }
+          // Day of week: Monday..Friday
+          DayOfWeek dowE = when.getDayOfWeek();
+          if (dowE == DayOfWeek.SUNDAY || dowE == DayOfWeek.SATURDAY) {
+            validE = false;
+            addReason("Present day of week not in Employee schedule [Mon–Fri]");
+          }
 
-              if(doorId.equals("D1") || doorId.equals("D2")) { // employees can't access parking doors
-                  validE = false;
-                  addReason("Employees can't access parking doors");
-              }
-              authorized = validE;
-              break;
-          case "": // can't do any actions
-              authorized = false;
-              break;
-          default:
-              authorized = false;
-              System.out.print("This user is " + user.getRole());
-              break;
+          // Time window: [09:00, 17:00)
+          LocalTime startE = LocalTime.of(9, 0);
+          LocalTime endE = LocalTime.of(17, 0);
+          LocalTime tE = when.toLocalTime();
+
+          if (validE && (tE.isBefore(startE) || !tE.isBefore(endE))) {
+            validE = false;
+            addReason("Present time not in Employee schedule [09:00..17:00]");
+          }
+
+          // Employee restrictions
+          if (action.equals("lock") || action.equals("unlock")) {
+            validE = false;
+            addReason("Employees can't lock or unlock doors");
+          }
+
+          if (doorId.equals("D1") || doorId.equals("D2")) {
+            validE = false;
+            addReason("Employees can't access parking doors");
+          }
+
+          authorized = validE;
+          break;
+
+        case "": // can't do any actions
+          authorized = false;
+          break;
+
+        default:
+          authorized = false;
+          System.out.print("This user is " + user.getRole());
+          break;
       }
 
-//      authorized = true; // true for debugging
+      // authorized = true; // true for debugging
     }
   }
 }
-

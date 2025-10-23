@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public final class DirectoryPartitions {
   private static ArrayList<Partition> allPartitions;
-  private static final String[] partitionNames = {
+  private static final String[] partitionNames = { // Partition names
       "basement", "ground_floor", "floor1"
   };
 
@@ -22,7 +22,7 @@ public final class DirectoryPartitions {
     ArrayList<Door> allDoors = DirectoryDoors.getAllDoors();
 
     for (Door door : allDoors) {
-      if (door.getPartition().equals(partitionName)) {
+      if (door.getPartition().equals(partitionName)) { // if the Door is in the Partition, it's added to the list
         doorList.add(door);
       }
     }

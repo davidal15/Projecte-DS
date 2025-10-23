@@ -3,7 +3,7 @@ package baseNoStates;
 import java.util.ArrayList;
 
 public final class DirectoryAreas {
-  private static ArrayList<Area> allAreas = new ArrayList<>();
+  private static ArrayList<Area> allAreas;
 
 
   public static void makeAreas() { // Creates all Spaces and Partitions

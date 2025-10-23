@@ -102,9 +102,12 @@ class User {
 
 class Space {
 + Space()
++ Space(id : String)
 }
 
 class Partition {
++ Partition()
++ Partition(id : String)
 }
 
 class Area {
@@ -125,6 +128,7 @@ class Main {
 note right of Main::main
 DirectoryDoors.makeDoors()
 DiretoryUsers.makeUsers()
+DirectoryAreas.makeAreas()
 new Webserver()
 end note
 

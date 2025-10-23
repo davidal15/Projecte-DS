@@ -7,13 +7,12 @@ public final class DirectoryAreas {
 
 
   public static void makeAreas() { // Creates all Spaces and Partitions
+    allAreas = new ArrayList<>();
+
     DirectoryPartitions.makePartitions();
     DirectorySpaces.makeSpaces();
 
-    allAreas.clear();
-
-    Area area = new Area("building"); // This creates the area Building, which contains every Partition, Space and Door
-    area.setDoors(DirectoryDoors.getAllDoors());
+    Area area = new Area("building", DirectoryDoors.getAllDoors()); // This creates the area Building, which contains every Partition, Space and Door
     // Combines all areas
     allAreas.add(area);
     allAreas.addAll(DirectoryPartitions.getAllPartitions());

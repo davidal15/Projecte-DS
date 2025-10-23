@@ -9,7 +9,7 @@ public class Partition extends Area { // Child of Area
   }
   // Both constructors use Area's
   public Partition(String id, ArrayList<Door> doors) {
-    super(id);
+    super(id, doors);
   }
 
 }

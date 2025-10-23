@@ -11,9 +11,9 @@ public class Area { // Father class for Space and Partition, since each Area is 
     this.doors = new ArrayList<>();
   }
 
-  public Area(String id) { // Constructor with id, used to create an area with a certain id
+  public Area(String id, ArrayList<Door> doors) { // Constructor used to create an area with a certain id and door list
     this.id = id;
-    this.doors = new ArrayList<>();
+    this.doors = doors;
   }
 
 
@@ -27,6 +27,7 @@ public class Area { // Father class for Space and Partition, since each Area is 
 
   public ArrayList<Door> getDoorsGivingAccess() { // Returns a list of Door included in a certain Area
     ArrayList<Door> allDoors = DirectoryDoors.getAllDoors();
+
     if (this.id.equals("building")) { // if the Area searched is building, all the doors are included
       return allDoors;
     } else {

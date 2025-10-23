@@ -103,19 +103,19 @@ class User {
 
 class Space {
 + Space()
-+ Space(id : String)
++ Space(id : String, doors : Door[])
 }
 
 class Partition {
 + Partition()
-+ Partition(id : String)
++ Partition(id : String, doors : Door[])
 }
 
 class Area {
 - id : String
 - doors : Door[]
 + Area()
-+ Area(id : String)
++ Area(id : String, doors : Door[])
 + getDoorsGivingAccess() : Door[]
 }
 

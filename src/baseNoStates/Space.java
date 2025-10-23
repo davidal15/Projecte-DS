@@ -9,7 +9,7 @@ public class Space extends Area { // Child of Area
   }
   // Both constructors use Area's
   public Space(String id, ArrayList<Door> doors) {
-    super(id);
+    super(id, doors);
   }
 
 

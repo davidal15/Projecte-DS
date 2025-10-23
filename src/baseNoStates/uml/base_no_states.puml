@@ -96,6 +96,7 @@ class Door {
 class User {
 - name : String
 - credential : String
+- role : String
 + User(name: String, credential: String)
 + toString() : String
 }
@@ -127,7 +128,7 @@ class Main {
 
 note right of Main::main
 DirectoryDoors.makeDoors()
-DiretoryUsers.makeUsers()
+DirectoryUsers.makeUsers()
 DirectoryAreas.makeAreas()
 new Webserver()
 end note

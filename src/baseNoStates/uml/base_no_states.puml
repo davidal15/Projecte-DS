@@ -33,6 +33,7 @@ class DirectoryDoors {
 }
 
 DirectoryDoors --> "*" Door : "allDoors"
+Partition --> Area
 
 class DirectoryUsers {
 - {static} users : User[]
@@ -67,6 +68,7 @@ class DirectoryAreas {
 + {static} makeAreas()
 + {static} findAreaById(id : String) : Area
 
+
 }
 
 DirectoryAreas --> "*" Area : "allAreas"
@@ -85,6 +87,10 @@ class Door {
 + processRequest(request : RequestReader)
 + setState(doorState : DoorState)
 + toJson() : JSONObject
++ getId() : String
++ getFrom() : String
++ getTo() : String
++ getPartition() : String
 '+ toString() : String
 '+ isClosed() :boolean
 '+ setClosed(b : boolean)
@@ -97,6 +103,8 @@ class User {
 - name : String
 - credential : String
 - role : String
++ getCredential() : String
++ getRole() : String
 + User(name: String, credential: String)
 + toString() : String
 }
@@ -116,6 +124,8 @@ class Area {
 - doors : Door[]
 + Area()
 + Area(id : String, doors : Door[])
++ getId() : String
++ setDoors(doors : Door[])
 + getDoorsGivingAccess() : Door[]
 }
 

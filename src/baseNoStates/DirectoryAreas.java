@@ -1,18 +1,18 @@
 package baseNoStates;
 
+import java.util.List;
 import java.util.ArrayList;
 
 public final class DirectoryAreas {
-  private static ArrayList<Area> allAreas;
+  private static List<Area> allAreas;
 
 
   public static void makeAreas() { // Creates all Spaces and Partitions
     allAreas = new ArrayList<>();
-
     DirectoryPartitions.makePartitions();
     DirectorySpaces.makeSpaces();
 
-    Area area = new Area("building", DirectoryDoors.getAllDoors()); // This creates the area Building, which contains every Partition, Space and Door
+    Area area = new Partition("building", DirectoryDoors.getAllDoors()); // This creates the area Building, which contains every Partition, Space and Door
     // Combines all areas
     allAreas.add(area);
     allAreas.addAll(DirectoryPartitions.getAllPartitions());

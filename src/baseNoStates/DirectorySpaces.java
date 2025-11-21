@@ -1,9 +1,10 @@
 package baseNoStates;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public final class DirectorySpaces {
-  private static ArrayList<Space> allSpaces;
+  private static List<Space> allSpaces;
   private static final String[] spaceNames = {
       "parking", "room1", "room2", "room3",
       "hall", "IT", "corridor", "stairs", "exterior"
@@ -12,15 +13,15 @@ public final class DirectorySpaces {
   public static void makeSpaces() {
     allSpaces = new ArrayList<>();
     for (String name : spaceNames) {
-      ArrayList<Door> doors = findDoorBySpaceId(name);
+      List<Door> doors = findDoorBySpaceId(name);
       Space s = new Space(name, doors);
       allSpaces.add(s);
     }
   }
 
-  public static ArrayList<Door> findDoorBySpaceId(String spaceId) { // Returns a list of Door that lead to the Space by parameter
-    ArrayList<Door> doorList = new ArrayList<>();
-    ArrayList<Door> allDoors = DirectoryDoors.getAllDoors();
+  public static List<Door> findDoorBySpaceId(String spaceId) { // Returns a list of Door that lead to the Space by parameter
+    List<Door> doorList = new ArrayList<>();
+    List<Door> allDoors = DirectoryDoors.getAllDoors();
 
     for (Door door : allDoors) {
       if (door.getFrom().equals(spaceId) || door.getTo().equals(spaceId)) { // if the Door goes from or to the Space
@@ -34,7 +35,7 @@ public final class DirectorySpaces {
     return doorList;
   }
 
-  public static ArrayList<Space> getAllSpaces() {
+  public static List<Space> getAllSpaces() {
     return allSpaces;
   }
 }

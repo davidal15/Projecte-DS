@@ -109,28 +109,23 @@ class User {
 + toString() : String
 }
 
-class Space {
-+ Space()
+class Space extends Area{
 + Space(id : String, doors : Door[])
 }
 
-class Partition {
-+ Partition()
+class Partition extends Area{
 + Partition(id : String, doors : Door[])
 }
 
-class Area {
-- id : String
-- doors : Door[]
-+ Area()
+abstract class Area {
+# id : String
+# doors : Door[]
 + Area(id : String, doors : Door[])
 + getId() : String
 + setDoors(doors : Door[])
 + getDoorsGivingAccess() : Door[]
 }
 
-Area <|-- Space
-Area <|-- Partition
 
 class Main {
 + {static} main(args : String)

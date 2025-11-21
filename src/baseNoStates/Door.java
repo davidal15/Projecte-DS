@@ -73,6 +73,8 @@ public class Door {
         break;
       case Actions.UNLOCK_SHORTLY:
         break;
+      case Actions.UNLOCK_SHORTLY:
+        break;
       default:
         assert false : "Unknown action " + action;
         System.exit(-1);
@@ -104,16 +106,12 @@ public class Door {
   }
 
   public String getStateName() {
-    if (locked) {
-      return "locked";
-    } else if (propped) {
-      return "propped";
-    } else if (unlocked_shortly) {
-      return "unlocked shortly";
-    }
-    return "unlocked";
+    return this.state.getStateName();
   }
 
+  public void setState(DoorState state) {
+    this.state = state;
+  }
   @Override
   public String toString() {
     return "Door{"

@@ -4,13 +4,11 @@ import baseNoStates.DirectoryDoors;
 import baseNoStates.DirectoryUsers;
 import baseNoStates.Door;
 import baseNoStates.User;
-
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -158,7 +156,7 @@ public class RequestReader implements Request {
             addReason("Present date not in Employee schedule [2025-09-01..2026-03-01]");
           }
 
-          // Day of week: Monday..Friday
+          // Day of week: Monday-Friday
           DayOfWeek dowE = when.getDayOfWeek();
           if (dowE == DayOfWeek.SUNDAY || dowE == DayOfWeek.SATURDAY) {
             validE = false;

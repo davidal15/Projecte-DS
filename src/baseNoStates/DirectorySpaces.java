@@ -3,6 +3,10 @@ package baseNoStates;
 import java.util.ArrayList;
 import java.util.List;
 
+/* The DirectorySpaces class, is responsible
+ *  for the status of each Space, creating them
+ *  with it's doorList and identification
+ */
 public final class DirectorySpaces {
   private static List<Space> allSpaces;
   private static final String[] spaceNames = {

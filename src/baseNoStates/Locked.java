@@ -1,5 +1,9 @@
 package baseNoStates;
 
+/* Locked is one of the states Door can be in
+*  This class is a child of DoorState, implementing
+*  each of it's methods
+*/
 public class Locked extends DoorState {
   public Locked() {
     this.stateName = "locked";

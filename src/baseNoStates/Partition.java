@@ -1,9 +1,10 @@
 package baseNoStates;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
-public class Partition extends Area { // Child of Area
+// Child of Area. The Partitions might include Spaces in them.
+public class Partition extends Area {
 
   // Both constructors use Area's
   public Partition(String id, List<Door> doors) {

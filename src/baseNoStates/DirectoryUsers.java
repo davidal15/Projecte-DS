@@ -2,12 +2,14 @@ package baseNoStates;
 
 import java.util.ArrayList;
 
+/* DirectoryUsers class is responsible to create
+*  every User and giving them a Role, a name and a credential
+*  Then, they are added into a User list.
+*/
 public final class DirectoryUsers {
   private static final ArrayList<User> users = new ArrayList<>();
 
   public static void makeUsers() {
-    //TODO: make user groups according to the specifications in the comments, because
-    // now all are the same
 
     // users without any privilege, just to keep temporally users instead of deleting them,
     // this is to withdraw all permissions but still to keep user data to give back

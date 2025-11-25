@@ -1,9 +1,9 @@
 package baseNoStates;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class Space extends Area { // Child of Area
+// Child of Area. It's the smallest possible type of Area.
+public class Space extends Area {
 
   // Both constructors use Area's
   public Space(String id, List<Door> doors) {

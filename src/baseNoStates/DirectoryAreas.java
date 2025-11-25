@@ -1,11 +1,23 @@
 package baseNoStates;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
+
 
 public final class DirectoryAreas {
   private static List<Area> allAreas;
-
+  /*
+   * Responsible for managing and grouping all areas in the system,
+   * including Partitions, Spaces, and the global "building" structure.
+   *
+   * Main responsibilities:
+   * - Initialize and construct all available areas through makeAreas().
+   * - Provide a lookup method to find an area by its identifier.
+   *
+   * Notes:
+   * - The allAreas list is generated from the partitions and spaces previously created.
+   * - The "building" area acts as a global container for all structures.
+   */
 
   public static void makeAreas() { // Creates all Spaces and Partitions
     allAreas = new ArrayList<>();

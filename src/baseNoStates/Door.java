@@ -4,6 +4,21 @@ import baseNoStates.requests.RequestReader;
 import org.json.JSONObject;
 
 
+/*
+ * The Door class Represents a door within the system, including its identifiers,
+ * origin and destination locations, associated partition, and state.
+ *
+ * It is responsible for:
+ * - Processing incoming requests and delegating behavior to its current DoorState.
+ * - Maintaining whether it is closed or open.
+ * - Transitioning between states such as locked, unlocked, opened, or closed.
+ *
+ * Each door knows the Space it opens from and where it leads, allowing navigation ordering.
+ * Authorization is checked before executing requested actions.
+ * The state pattern is used to encapsulate door behavior based on its current state.
+ * JSON export is supported for external representation.
+ */
+
 public class Door {
   private final String id;
   private final String from; // every door needs to know where it opens from and where it leads
@@ -112,6 +127,7 @@ public class Door {
   public void setState(DoorState state) {
     this.state = state;
   }
+
   @Override
   public String toString() {
     return "Door{"

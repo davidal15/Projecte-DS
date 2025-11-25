@@ -3,13 +3,17 @@ package baseNoStates;
 import java.util.ArrayList;
 import java.util.List;
 
+/* The DirectoryPartitions class, is responsible
+*  for the status of each Partition, creating them
+*  with it's doorList and identification
+*/
 public final class DirectoryPartitions {
   private static List<Partition> allPartitions;
   private static final String[] partitionNames = { // Partition names
       "basement", "ground_floor", "floor1"
   };
-
-  public static void makePartitions() { // Creates every Partition. Gives them an id and a list of Door that give access to it
+  // Creates every Partition. Gives them an id and a list of Door that give access to it
+  public static void makePartitions() {
     allPartitions = new ArrayList<>();
     for (String name : partitionNames) {
       List<Door> doors = new ArrayList<>();
@@ -18,9 +22,9 @@ public final class DirectoryPartitions {
       allPartitions.add(p);
     }
   }
-
-  public static List<Door> findDoorByPartitionId(String partitionName) { // Returns every door for the Partition
-    List<Door> doorList = new ArrayList<>();                             // passed by parameter
+  // Returns every door for the Partition passed by parameter
+  public static List<Door> findDoorByPartitionId(String partitionName) {
+    List<Door> doorList = new ArrayList<>();
     List<Door> allDoors = DirectoryDoors.getAllDoors();
 
     for (Door door : allDoors) {

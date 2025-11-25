@@ -1,24 +1,27 @@
 package baseNoStates;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Arrays;
 
+/* DirectoryDoors is responsible for the Doors the building has.
+   It initializes all Doors. It gives them
+   an id, the exact Partition partitions, and both the Areas it connects.
+*/
 public final class DirectoryDoors {
   private static ArrayList<Door> allDoors;
 
   public static void makeDoors() { // Initializes all doors with their id, from and where it goes and the Partition it pertains
-    // basement
+    // basement doors
     Door d1 = new Door("D1", "exterior", "parking", "basement"); // exterior, parking
     Door d2 = new Door("D2", "stairs", "parking", "basement"); // stairs, parking
 
-    // ground floor
+    // ground floor doors
     Door d3 = new Door("D3", "exterior", "hall", "ground_floor"); // exterior, hall
     Door d4 = new Door("D4", "stairs", "hall", "ground_floor"); // stairs, hall
     Door d5 = new Door("D5", "hall", "room1", "ground_floor"); // hall, room1
     Door d6 = new Door("D6", "hall", "room2", "ground_floor"); // hall, room2
 
-    // first floor
+    // first floor doors
     Door d7 = new Door("D7", "stairs", "corridor", "floor1"); // stairs, corridor
     Door d8 = new Door("D8", "corridor", "room3", "floor1"); // corridor, room3
     Door d9 = new Door("D9", "corridor", "IT", "floor1"); // corridor, IT

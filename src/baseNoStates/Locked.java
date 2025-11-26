@@ -18,26 +18,26 @@ public class Locked extends DoorState {
 
   @Override
   public void open(Door door) {
-    logger.warn("Attempt to OPEN door '{}' while in state '{}': action denied",
+    logger.warn("Door '{}' can't be opened while '{}'}",
         door.getId(), stateName);
   }
 
   @Override
   public void close(Door door) {
-    logger.warn("Attempt to CLOSE door '{}' while already closed and locked",
+    logger.warn("Door '{}' is already closed and locked",
         door.getId());
   }
 
   @Override
   public void lock(Door door) {
-    logger.warn("Attempt to LOCK door '{}' but it is already locked",
+    logger.warn("Door '{}' is already locked",
         door.getId());
   }
 
   @Override
   public void unlock(Door door) {
-    logger.info("Door '{}' unlocked (transitioning from '{}' to 'unlocked')",
-        door.getId(), stateName);
+    logger.info("Door '{}' unlocked",
+        door.getId());
     door.setState(new Unlocked());
   }
 }

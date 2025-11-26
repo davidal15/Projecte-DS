@@ -1,7 +1,7 @@
 package baseNoStates;
 
 
-/* Represents a user within the system, including their name,
+/** Represents a user within the system, including their name,
  * authentication credential, and assigned role.
  * The class is immutable; user properties are final and set at construction time.
  */

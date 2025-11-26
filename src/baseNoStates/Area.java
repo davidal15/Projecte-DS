@@ -60,7 +60,6 @@ public abstract class Area {
         logger.warn("No doors found for area: {}", this.id);
       }
     }
-
     return this.doors;
   }
 }

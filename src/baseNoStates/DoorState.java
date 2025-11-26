@@ -1,6 +1,6 @@
 package baseNoStates;
 
-/* The DoorState class applies the State pattern.
+/** The DoorState class applies the State pattern.
 *  It is an abstract class so the Door might have as many states as
 *  needed without having to modify the code.
 *

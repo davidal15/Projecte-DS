@@ -82,7 +82,7 @@ public final class DirectoryAreas {
   }
 
   /**
-   * Finds an area by its identifier.
+   * Finds an area by its identifier, applying the Visitor pattern.
    *
    * @param id area identifier
    * @return the Area with the given id, or null if not found
@@ -95,14 +95,23 @@ public final class DirectoryAreas {
       return null;
     }
 
+    FindAreaVisitor visitor = new FindAreaVisitor(id);
+
     for (Area area : allAreas) {
-      if (area.getId().equalsIgnoreCase(id)) {
-        logger.info("Area '{}' found", id);
-        return area;
+      area.accept(visitor);
+      if (visitor.getResult() != null) {
+        break;
       }
     }
 
-    logger.warn("No area found with id '{}'", id);
-    return null;
+    Area found = visitor.getResult();
+
+    if (found != null) {
+      logger.info("Area '{}' found", id);
+    } else {
+      logger.warn("No area found with id '{}'", id);
+    }
+
+    return found;
   }
 }

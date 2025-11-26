@@ -11,4 +11,14 @@ public class Partition extends Area {
     super(id, doors);
   }
 
+  /**
+   * Accepts a visitor.
+   * This allows hierarchical navigation without adding traversal logic
+   * inside domain model methods.
+   */
+  @Override
+  public void accept(AreaVisitor visitor) {
+    visitor.visitPartition(this);
+  }
+
 }

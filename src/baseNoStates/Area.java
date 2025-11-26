@@ -62,4 +62,11 @@ public abstract class Area {
     }
     return this.doors;
   }
+
+  /**
+   * Accepts a visitor that performs an operation on this Area instance.
+   * This enables traversal-based behaviors to be externalized rather than
+   * implemented directly inside the Area class.
+   */
+  abstract void accept(AreaVisitor visitor);
 }

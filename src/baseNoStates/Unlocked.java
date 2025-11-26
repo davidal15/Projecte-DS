@@ -6,7 +6,6 @@ import org.slf4j.LoggerFactory;
 /**
  * Unlocked is one of the states a Door can be in.
  * Represents a door that can be opened while unlocked.
- *
  */
 public class Unlocked extends DoorState {
 

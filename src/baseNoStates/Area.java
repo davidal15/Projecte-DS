@@ -40,7 +40,7 @@ public abstract class Area {
 
     logger.info("Computing doors giving access to area {}", id);
 
-    List<Door> allDoors = DirectoryDoors.getAllDoors();
+    List<Door> allDoors = DirectoryDoors.getInstance().getAllDoors();
 
     if (this.id.equals("building")) {
       logger.debug("Area '{}' is building: returning all doors ({})", id, allDoors.size());

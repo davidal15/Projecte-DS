@@ -24,7 +24,7 @@ public class RequestArea implements Request {
     this.credential = credential;
     this.areaId = areaId;
     assert action.equals(Actions.LOCK) || action.equals(Actions.UNLOCK)
-            : "invalid action " + action + " for an area request";
+        : "invalid action " + action + " for an area request";
     this.action = action;
     this.now = now;
   }
@@ -55,12 +55,12 @@ public class RequestArea implements Request {
       requestsDoorsStr = requests.toString();
     }
     return "Request{"
-            + "credential=" + credential
-            + ", action=" + action
-            + ", now=" + now
-            + ", areaId=" + areaId
-            + ", requestsDoors=" + requestsDoorsStr
-            + "}";
+        + "credential=" + credential
+        + ", action=" + action
+        + ", now=" + now
+        + ", areaId=" + areaId
+        + ", requestsDoors=" + requestsDoorsStr
+        + "}";
   }
 
   // processing the request of an area is creating the corresponding door requests and forwarding
@@ -72,7 +72,7 @@ public class RequestArea implements Request {
 
     // make the door requests and put them into the area request to be authorized later and
     // processed later
-    Area area = DirectoryAreas.findAreaById(areaId);
+    Area area = DirectoryAreas.getInstance().findAreaById(areaId);
     // an Area is a Space or a Partition
     if (area != null) {
       // is null when from the app we click on an action but no place is selected because

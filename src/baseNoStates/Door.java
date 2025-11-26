@@ -58,12 +58,10 @@ public class Door {
 
   public void open() {
     closed = false;
-    logger.info("Door '{}' opened", id);
   }
 
   public void close() {
     closed = true;
-    logger.info("Door '{}' closed", id);
   }
 
   private void doAction(String action) {
@@ -118,7 +116,7 @@ public class Door {
   }
 
   public void setState(DoorState state) {
-    logger.info("Door '{}' transitioned to state '{}'", id, state.getStateName());
+    logger.debug("Door '{}' transitioned to state '{}'", id, state.getStateName());
     this.state = state;
   }
 

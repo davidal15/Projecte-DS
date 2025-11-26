@@ -11,58 +11,79 @@ import java.util.List;
  * all spaces in the building. Each space is assigned an identifier
  * and the list of doors that give access to it.
 
- * Responsibilities:
- * - Create all spaces through makeSpaces().
- * - Retrieve doors associated with a specific space.
- * - Provide access to the full space list.
-
- * Notes:
- * - Space names are predefined.
- * - A warning is logged if a space has no connecting doors.
+ * Implemented as a singleton so that there is a single shared
+ * directory of spaces across the application.
  */
 public final class DirectorySpaces {
 
-  private static final Logger logger = LoggerFactory.getLogger(DirectorySpaces.class);
+  private static final Logger logger =
+      LoggerFactory.getLogger(DirectorySpaces.class);
 
-  private static List<Space> allSpaces;
+  // Singleton instance
+  private static final DirectorySpaces INSTANCE = new DirectorySpaces();
 
+  // List with all spaces
+  private List<Space> allSpaces;
+
+  // Predefined space names
   private static final String[] spaceNames = {
       "parking", "room1", "room2", "room3",
       "hall", "IT", "corridor", "stairs", "exterior"
   };
 
-  public static void makeSpaces() {
+  /**
+   * Private constructor to enforce singleton.
+   */
+  private DirectorySpaces() {
+    allSpaces = new ArrayList<>();
+  }
 
+  /**
+   * Returns the single instance of DirectorySpaces.
+   *
+   * @return the singleton instance
+   */
+  public static DirectorySpaces getInstance() {
+    return INSTANCE;
+  }
+
+  /**
+   * Creates and initializes all spaces.
+   * This method should be called once at startup.
+   */
+  public void makeSpaces() {
     logger.info("Initializing spaces...");
 
     allSpaces = new ArrayList<>();
 
     for (String name : spaceNames) {
-
       logger.debug("Creating space '{}'", name);
-
       List<Door> doors = findDoorBySpaceId(name);
-
       Space s = new Space(name, doors);
       allSpaces.add(s);
-
       logger.info("Space '{}' initialized with {} doors", name, doors.size());
     }
 
     logger.info("Total spaces initialized: {}", allSpaces.size());
   }
 
-  public static List<Door> findDoorBySpaceId(String spaceId) {
-
+  /**
+   * Finds all doors that give access to a given space.
+   *
+   * @param spaceId identifier of the space
+   * @return list of doors associated with the space
+   */
+  public List<Door> findDoorBySpaceId(String spaceId) {
     logger.debug("Searching doors for space '{}'", spaceId);
 
     List<Door> doorList = new ArrayList<>();
-    List<Door> allDoors = DirectoryDoors.getAllDoors();
+    List<Door> allDoors = DirectoryDoors.getInstance().getAllDoors();
 
     for (Door door : allDoors) {
       if (door.getFrom().equals(spaceId) || door.getTo().equals(spaceId)) {
         doorList.add(door);
-        logger.debug("Door '{}' associated with space '{}'", door.getId(), spaceId);
+        logger.debug("Door '{}' associated with space '{}'",
+            door.getId(), spaceId);
       }
     }
 
@@ -73,7 +94,12 @@ public final class DirectorySpaces {
     return doorList;
   }
 
-  public static List<Space> getAllSpaces() {
+  /**
+   * Returns the list of all spaces.
+   *
+   * @return list with all spaces
+   */
+  public List<Space> getAllSpaces() {
     logger.debug("Returning {} spaces", allSpaces.size());
     return allSpaces;
   }

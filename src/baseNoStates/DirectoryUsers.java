@@ -1,6 +1,7 @@
 package baseNoStates;
 
 import java.util.ArrayList;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -9,23 +10,51 @@ import org.slf4j.LoggerFactory;
  * all users in the system. Each user is assigned a name,
  * credential, and role before being added to the user list.
 
+ * Implemented as a singleton so that there is a single shared
+ * directory of users across the application.
+
  * Responsibilities:
  * - Populate the system with predefined users through makeUsers().
  * - Provide lookup functionality to find a user based on credentials.
 
  * Notes:
  * - A warning is logged when a credential lookup fails.
- * - Users are stored statically and remain in memory.
  */
 public final class DirectoryUsers {
 
-  private static final Logger logger = LoggerFactory.getLogger(DirectoryUsers.class);
+  private static final Logger logger =
+      LoggerFactory.getLogger(DirectoryUsers.class);
 
-  private static final ArrayList<User> users = new ArrayList<>();
+  // Singleton instance
+  private static final DirectoryUsers INSTANCE = new DirectoryUsers();
 
-  public static void makeUsers() {
+  // List with all users
+  private final ArrayList<User> users = new ArrayList<>();
 
+  /**
+   * Private constructor to enforce singleton.
+   */
+  private DirectoryUsers() {
+    // empty; users are added in makeUsers()
+  }
+
+  /**
+   * Returns the single instance of DirectoryUsers.
+   *
+   * @return the singleton instance
+   */
+  public static DirectoryUsers getInstance() {
+    return INSTANCE;
+  }
+
+  /**
+   * Creates and initializes all users in the system.
+   * This method should be called once at startup.
+   */
+  public void makeUsers() {
     logger.info("Initializing users...");
+
+    users.clear();
 
     // users without any privilege
     users.add(new User("Bernat", "12345", ""));
@@ -42,16 +71,23 @@ public final class DirectoryUsers {
     // admin
     users.add(new User("Ana", "11343", "Admin"));
 
-    logger.info("Users initialized successfully. Total users: {}", users.size());
+    logger.info("Users initialized successfully. Total users: {}",
+        users.size());
   }
 
-  public static User findUserByCredential(String credential) {
-
+  /**
+   * Finds a user by its credential.
+   *
+   * @param credential user credential
+   * @return the User with the given credential, or null if not found
+   */
+  public User findUserByCredential(String credential) {
     logger.debug("Searching for user with credential '{}'", credential);
 
     for (User user : users) {
       if (user.getCredential().equals(credential)) {
-        logger.info("User '{}' found for credential '{}'", user.getName(), credential);
+        logger.info("User '{}' found for credential '{}'",
+            user.toString(), credential);
         return user;
       }
     }

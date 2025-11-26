@@ -4,13 +4,12 @@ package baseNoStates;
 // https://se-education.org/guides/tutorials/intellijUsefulSettings.html
 
 public class Main {
-
   public static void main(String[] args) {
-
-    DirectoryDoors.makeDoors();
-    DirectoryUsers.makeUsers();
-    DirectoryAreas.makeAreas();
-
+    DirectoryDoors.getInstance().makeDoors();
+    DirectoryUsers.getInstance().makeUsers();
+    DirectoryAreas.getInstance().makeAreas();
+    // Area a = new Area("hall");
+    // System.out.println(a.getDoorsGivingAccess());
     new WebServer();
   }
 }

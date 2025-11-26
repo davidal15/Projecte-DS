@@ -33,7 +33,7 @@ class DirectoryDoors {
 }
 
 DirectoryDoors --> "*" Door : "allDoors"
-Partition --> Area
+Partition --> "*" Area
 
 class DirectoryUsers {
 - {static} users : User[]
@@ -80,9 +80,7 @@ class Door {
 - to : String
 - partition : String
 - closed : boolean
-- locked : boolean
-- propped : boolean
-- unlocked_shortly : boolean
+- state : DoorState
 + Door(id : String, from : String, to : String, partition : String)
 + processRequest(request : RequestReader)
 + setState(doorState : DoorState)
@@ -98,7 +96,29 @@ class Door {
 - doAction(action : String)
 }
 
+abstract class DoorState {
+# stateName : String
++ {abstract} open()
++ {abstract} close()
++ {abstract} lock()
++ {abstract} unlock()
+}
 
+Door --> "1" DoorState : state
+
+class Unlock extends DoorState {
++ open()
++ close()
++ lock()
++ unlock()
+}
+
+class Lock extends DoorState {
++ open()
++ close()
++ lock()
++ unlock()
+}
 class User {
 - name : String
 - credential : String

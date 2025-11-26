@@ -24,10 +24,8 @@ public class Door {
   private final String from; // every door needs to know where it opens from and where it leads
   private final String to;   // in order to order the Spaces
   private final String partition;
-  private boolean closed; // physically
-  private boolean locked; // locked or unlocked door
-  private boolean propped; // if unlocked shortly doesn't lock the door, it's propped
-  private boolean unlocked_shortly;
+  private boolean closed;
+  private DoorState state;
 
 
   public Door(String id, String from, String to, String partition) {
@@ -35,9 +33,8 @@ public class Door {
     this.from = from;
     this.to = to;
     this.partition = partition;
-    closed = true;
-    locked = true;
-    propped = false;
+    this.closed = true;
+    this.state = new Locked();
   }
 
   public void processRequest(RequestReader request) {
@@ -52,41 +49,27 @@ public class Door {
     request.setDoorStateName(getStateName());
   }
 
+  public void open() {
+    closed = false;
+  }
+
+  public void close() {
+    closed = true;
+  }
+
   private void doAction(String action) {
     switch (action) {
       case Actions.OPEN:
-        if (closed && !locked) {
-          closed = false;
-        } else {
-          System.out.println("Can't open door " + id + " because it's already open or locked");
-        }
+        state.open(this);
         break;
       case Actions.CLOSE:
-        if (!closed) {
-          closed = true;
-        } else if (!closed && propped) { // used only if door is propped
-          closed = true;
-          propped = false;
-          locked = true;
-        } else {
-          System.out.println("Can't close door " + id + ", it's already closed");
-        }
+        state.close(this);
         break;
       case Actions.LOCK:
-        if (!locked && closed) { // if door is not locked and is closed
-          locked = true;
-        } else {
-          System.out.println("Can't lock door " + id + ", it's already locked or it isn't closed");
-        }
+        state.lock(this);
         break;
       case Actions.UNLOCK:
-        if (locked) {
-          locked = false;
-        } else {
-          System.out.println("Can't unlock door " + id + ", it's already unlocked");
-        }
-        break;
-      case Actions.UNLOCK_SHORTLY:
+        state.unlock(this);
         break;
       case Actions.UNLOCK_SHORTLY:
         break;
@@ -98,10 +81,6 @@ public class Door {
 
   public boolean isClosed() {
     return closed;
-  }
-
-  public boolean isLocked() {
-    return locked;
   }
 
   public String getId() {

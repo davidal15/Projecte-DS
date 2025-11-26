@@ -119,10 +119,12 @@ class Lock extends DoorState {
 + lock()
 + unlock()
 }
+
 class User {
 - name : String
 - credential : String
 - role : String
++ getName() : String
 + getCredential() : String
 + getRole() : String
 + User(name: String, credential: String)

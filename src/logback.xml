@@ -33,23 +33,24 @@
 
     <!-- Log ONLY milestone 2 (requests + webserver) -->
     <!--
-    <logger name="baseNoStates.requests" level="DEBUG" additivity="false">
-        <appender-ref ref="CONSOLE" />
-        <appender-ref ref="ACTIVITY" />
+    <File name="actionsFile" fileName="activity.log" append="true">
+        <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %c - %msg%n"/>
+    </File>
+    <logger name="baseNoStates.requests" level="INFO" additivity="false">
+        <AppenderRef ref="ActivityFile"/>
     </logger>
 
-    <logger name="baseNoStates.WebServer" level="DEBUG" additivity="false">
-        <appender-ref ref="CONSOLE" />
-        <appender-ref ref="ACTIVITY" />
+    <logger name="baseNoStates.WebServer" level="INFO" additivity="false">
+        <AppenderRef ref="ActivityFile"/>
     </logger>
 
-    <root level="WARN">
-        <appender-ref ref="CONSOLE" />
-    </root>
+    <Root level="error">
+            <AppenderRef ref="ActivityFile"/>
+    </Root>
     -->
 
     <!-- Log ALL classes -->
-    <root level="DEBUG">
+    <root level="INFO">
         <appender-ref ref="CONSOLE" />
         <appender-ref ref="ACTIVITY" />
     </root>

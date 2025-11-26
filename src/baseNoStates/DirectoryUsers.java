@@ -51,7 +51,7 @@ public final class DirectoryUsers {
 
     for (User user : users) {
       if (user.getCredential().equals(credential)) {
-        logger.info("User '{}' found for credential '{}'", user.toString(), credential);
+        logger.info("User '{}' found for credential '{}'", user.getName(), credential);
         return user;
       }
     }

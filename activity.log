@@ -292,3 +292,504 @@
 2025-11-26 15:02:03,712 [Thread-1] INFO  baseNoStates.Locked - Door 'D5' unlocked (transitioning from 'locked' to 'unlocked')
 2025-11-26 15:02:03,712 [Thread-1] INFO  baseNoStates.Door - Door 'D5' transitioned to state 'unlocked'
 2025-11-26 15:02:03,712 [Thread-1] INFO  baseNoStates.Door - Authorized request on door 'D5' with action 'unlock'
+2025-11-26 15:51:33,932 [main] INFO  baseNoStates.DirectoryDoors - Initializing doors...
+2025-11-26 15:51:33,947 [main] INFO  baseNoStates.Door - Door 'D1' created (from='exterior', to='parking', partition='basement')
+2025-11-26 15:51:33,949 [main] INFO  baseNoStates.Door - Door 'D2' created (from='stairs', to='parking', partition='basement')
+2025-11-26 15:51:33,949 [main] INFO  baseNoStates.Door - Door 'D3' created (from='exterior', to='hall', partition='ground_floor')
+2025-11-26 15:51:33,949 [main] INFO  baseNoStates.Door - Door 'D4' created (from='stairs', to='hall', partition='ground_floor')
+2025-11-26 15:51:33,949 [main] INFO  baseNoStates.Door - Door 'D5' created (from='hall', to='room1', partition='ground_floor')
+2025-11-26 15:51:33,949 [main] INFO  baseNoStates.Door - Door 'D6' created (from='hall', to='room2', partition='ground_floor')
+2025-11-26 15:51:33,949 [main] INFO  baseNoStates.Door - Door 'D7' created (from='stairs', to='corridor', partition='floor1')
+2025-11-26 15:51:33,949 [main] INFO  baseNoStates.Door - Door 'D8' created (from='corridor', to='room3', partition='floor1')
+2025-11-26 15:51:33,949 [main] INFO  baseNoStates.Door - Door 'D9' created (from='corridor', to='IT', partition='floor1')
+2025-11-26 15:51:33,949 [main] DEBUG baseNoStates.DirectoryDoors - Total doors initialized: 9
+2025-11-26 15:51:33,949 [main] INFO  baseNoStates.DirectoryDoors - Doors initialized successfully.
+2025-11-26 15:51:33,950 [main] INFO  baseNoStates.DirectoryUsers - Initializing users...
+2025-11-26 15:51:33,954 [main] INFO  baseNoStates.DirectoryUsers - Users initialized successfully. Total users: 7
+2025-11-26 15:51:33,955 [main] INFO  baseNoStates.DirectoryAreas - Initializing areas...
+2025-11-26 15:51:33,955 [main] DEBUG baseNoStates.DirectoryAreas - Creating partitions...
+2025-11-26 15:51:33,955 [main] INFO  baseNoStates.DirectoryPartitions - Initializing partitions...
+2025-11-26 15:51:33,955 [main] DEBUG baseNoStates.DirectoryPartitions - Creating partition 'basement'
+2025-11-26 15:51:33,956 [main] DEBUG baseNoStates.DirectoryPartitions - Searching doors for partition 'basement'
+2025-11-26 15:51:33,956 [main] DEBUG baseNoStates.DirectoryDoors - Returning full door list (9 doors)
+2025-11-26 15:51:33,956 [main] DEBUG baseNoStates.DirectoryPartitions - Door 'D1' added to partition 'basement'
+2025-11-26 15:51:33,956 [main] DEBUG baseNoStates.DirectoryPartitions - Door 'D2' added to partition 'basement'
+2025-11-26 15:51:33,960 [main] DEBUG baseNoStates.Area - Area created with id=basement
+2025-11-26 15:51:33,960 [main] INFO  baseNoStates.DirectoryPartitions - Partition 'basement' initialized with 2 doors
+2025-11-26 15:51:33,960 [main] DEBUG baseNoStates.DirectoryPartitions - Creating partition 'ground_floor'
+2025-11-26 15:51:33,960 [main] DEBUG baseNoStates.DirectoryPartitions - Searching doors for partition 'ground_floor'
+2025-11-26 15:51:33,960 [main] DEBUG baseNoStates.DirectoryDoors - Returning full door list (9 doors)
+2025-11-26 15:51:33,960 [main] DEBUG baseNoStates.DirectoryPartitions - Door 'D3' added to partition 'ground_floor'
+2025-11-26 15:51:33,960 [main] DEBUG baseNoStates.DirectoryPartitions - Door 'D4' added to partition 'ground_floor'
+2025-11-26 15:51:33,960 [main] DEBUG baseNoStates.DirectoryPartitions - Door 'D5' added to partition 'ground_floor'
+2025-11-26 15:51:33,961 [main] DEBUG baseNoStates.DirectoryPartitions - Door 'D6' added to partition 'ground_floor'
+2025-11-26 15:51:33,961 [main] DEBUG baseNoStates.Area - Area created with id=ground_floor
+2025-11-26 15:51:33,961 [main] INFO  baseNoStates.DirectoryPartitions - Partition 'ground_floor' initialized with 4 doors
+2025-11-26 15:51:33,961 [main] DEBUG baseNoStates.DirectoryPartitions - Creating partition 'floor1'
+2025-11-26 15:51:33,961 [main] DEBUG baseNoStates.DirectoryPartitions - Searching doors for partition 'floor1'
+2025-11-26 15:51:33,961 [main] DEBUG baseNoStates.DirectoryDoors - Returning full door list (9 doors)
+2025-11-26 15:51:33,961 [main] DEBUG baseNoStates.DirectoryPartitions - Door 'D7' added to partition 'floor1'
+2025-11-26 15:51:33,961 [main] DEBUG baseNoStates.DirectoryPartitions - Door 'D8' added to partition 'floor1'
+2025-11-26 15:51:33,961 [main] DEBUG baseNoStates.DirectoryPartitions - Door 'D9' added to partition 'floor1'
+2025-11-26 15:51:33,961 [main] DEBUG baseNoStates.Area - Area created with id=floor1
+2025-11-26 15:51:33,961 [main] INFO  baseNoStates.DirectoryPartitions - Partition 'floor1' initialized with 3 doors
+2025-11-26 15:51:33,961 [main] INFO  baseNoStates.DirectoryPartitions - Total partitions initialized: 3
+2025-11-26 15:51:33,961 [main] DEBUG baseNoStates.DirectoryAreas - Creating spaces...
+2025-11-26 15:51:33,962 [main] INFO  baseNoStates.DirectorySpaces - Initializing spaces...
+2025-11-26 15:51:33,962 [main] DEBUG baseNoStates.DirectorySpaces - Creating space 'parking'
+2025-11-26 15:51:33,962 [main] DEBUG baseNoStates.DirectorySpaces - Searching doors for space 'parking'
+2025-11-26 15:51:33,962 [main] DEBUG baseNoStates.DirectoryDoors - Returning full door list (9 doors)
+2025-11-26 15:51:33,962 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D1' associated with space 'parking'
+2025-11-26 15:51:33,962 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D2' associated with space 'parking'
+2025-11-26 15:51:33,962 [main] DEBUG baseNoStates.Area - Area created with id=parking
+2025-11-26 15:51:33,962 [main] INFO  baseNoStates.DirectorySpaces - Space 'parking' initialized with 2 doors
+2025-11-26 15:51:33,962 [main] DEBUG baseNoStates.DirectorySpaces - Creating space 'room1'
+2025-11-26 15:51:33,962 [main] DEBUG baseNoStates.DirectorySpaces - Searching doors for space 'room1'
+2025-11-26 15:51:33,962 [main] DEBUG baseNoStates.DirectoryDoors - Returning full door list (9 doors)
+2025-11-26 15:51:33,962 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D5' associated with space 'room1'
+2025-11-26 15:51:33,962 [main] DEBUG baseNoStates.Area - Area created with id=room1
+2025-11-26 15:51:33,963 [main] INFO  baseNoStates.DirectorySpaces - Space 'room1' initialized with 1 doors
+2025-11-26 15:51:33,963 [main] DEBUG baseNoStates.DirectorySpaces - Creating space 'room2'
+2025-11-26 15:51:33,963 [main] DEBUG baseNoStates.DirectorySpaces - Searching doors for space 'room2'
+2025-11-26 15:51:33,963 [main] DEBUG baseNoStates.DirectoryDoors - Returning full door list (9 doors)
+2025-11-26 15:51:33,963 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D6' associated with space 'room2'
+2025-11-26 15:51:33,963 [main] DEBUG baseNoStates.Area - Area created with id=room2
+2025-11-26 15:51:33,963 [main] INFO  baseNoStates.DirectorySpaces - Space 'room2' initialized with 1 doors
+2025-11-26 15:51:33,963 [main] DEBUG baseNoStates.DirectorySpaces - Creating space 'room3'
+2025-11-26 15:51:33,963 [main] DEBUG baseNoStates.DirectorySpaces - Searching doors for space 'room3'
+2025-11-26 15:51:33,963 [main] DEBUG baseNoStates.DirectoryDoors - Returning full door list (9 doors)
+2025-11-26 15:51:33,963 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D8' associated with space 'room3'
+2025-11-26 15:51:33,963 [main] DEBUG baseNoStates.Area - Area created with id=room3
+2025-11-26 15:51:33,963 [main] INFO  baseNoStates.DirectorySpaces - Space 'room3' initialized with 1 doors
+2025-11-26 15:51:33,963 [main] DEBUG baseNoStates.DirectorySpaces - Creating space 'hall'
+2025-11-26 15:51:33,963 [main] DEBUG baseNoStates.DirectorySpaces - Searching doors for space 'hall'
+2025-11-26 15:51:33,963 [main] DEBUG baseNoStates.DirectoryDoors - Returning full door list (9 doors)
+2025-11-26 15:51:33,963 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D3' associated with space 'hall'
+2025-11-26 15:51:33,963 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D4' associated with space 'hall'
+2025-11-26 15:51:33,963 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D5' associated with space 'hall'
+2025-11-26 15:51:33,963 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D6' associated with space 'hall'
+2025-11-26 15:51:33,963 [main] DEBUG baseNoStates.Area - Area created with id=hall
+2025-11-26 15:51:33,963 [main] INFO  baseNoStates.DirectorySpaces - Space 'hall' initialized with 4 doors
+2025-11-26 15:51:33,963 [main] DEBUG baseNoStates.DirectorySpaces - Creating space 'IT'
+2025-11-26 15:51:33,963 [main] DEBUG baseNoStates.DirectorySpaces - Searching doors for space 'IT'
+2025-11-26 15:51:33,963 [main] DEBUG baseNoStates.DirectoryDoors - Returning full door list (9 doors)
+2025-11-26 15:51:33,963 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D9' associated with space 'IT'
+2025-11-26 15:51:33,963 [main] DEBUG baseNoStates.Area - Area created with id=IT
+2025-11-26 15:51:33,963 [main] INFO  baseNoStates.DirectorySpaces - Space 'IT' initialized with 1 doors
+2025-11-26 15:51:33,964 [main] DEBUG baseNoStates.DirectorySpaces - Creating space 'corridor'
+2025-11-26 15:51:33,964 [main] DEBUG baseNoStates.DirectorySpaces - Searching doors for space 'corridor'
+2025-11-26 15:51:33,964 [main] DEBUG baseNoStates.DirectoryDoors - Returning full door list (9 doors)
+2025-11-26 15:51:33,964 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D7' associated with space 'corridor'
+2025-11-26 15:51:33,964 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D8' associated with space 'corridor'
+2025-11-26 15:51:33,964 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D9' associated with space 'corridor'
+2025-11-26 15:51:33,964 [main] DEBUG baseNoStates.Area - Area created with id=corridor
+2025-11-26 15:51:33,964 [main] INFO  baseNoStates.DirectorySpaces - Space 'corridor' initialized with 3 doors
+2025-11-26 15:51:33,964 [main] DEBUG baseNoStates.DirectorySpaces - Creating space 'stairs'
+2025-11-26 15:51:33,964 [main] DEBUG baseNoStates.DirectorySpaces - Searching doors for space 'stairs'
+2025-11-26 15:51:33,964 [main] DEBUG baseNoStates.DirectoryDoors - Returning full door list (9 doors)
+2025-11-26 15:51:33,964 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D2' associated with space 'stairs'
+2025-11-26 15:51:33,964 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D4' associated with space 'stairs'
+2025-11-26 15:51:33,964 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D7' associated with space 'stairs'
+2025-11-26 15:51:33,964 [main] DEBUG baseNoStates.Area - Area created with id=stairs
+2025-11-26 15:51:33,964 [main] INFO  baseNoStates.DirectorySpaces - Space 'stairs' initialized with 3 doors
+2025-11-26 15:51:33,964 [main] DEBUG baseNoStates.DirectorySpaces - Creating space 'exterior'
+2025-11-26 15:51:33,964 [main] DEBUG baseNoStates.DirectorySpaces - Searching doors for space 'exterior'
+2025-11-26 15:51:33,964 [main] DEBUG baseNoStates.DirectoryDoors - Returning full door list (9 doors)
+2025-11-26 15:51:33,964 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D1' associated with space 'exterior'
+2025-11-26 15:51:33,964 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D3' associated with space 'exterior'
+2025-11-26 15:51:33,964 [main] DEBUG baseNoStates.Area - Area created with id=exterior
+2025-11-26 15:51:33,965 [main] INFO  baseNoStates.DirectorySpaces - Space 'exterior' initialized with 2 doors
+2025-11-26 15:51:33,965 [main] INFO  baseNoStates.DirectorySpaces - Total spaces initialized: 9
+2025-11-26 15:51:33,965 [main] DEBUG baseNoStates.DirectoryDoors - Returning full door list (9 doors)
+2025-11-26 15:51:33,965 [main] DEBUG baseNoStates.Area - Area created with id=building
+2025-11-26 15:51:33,965 [main] DEBUG baseNoStates.DirectoryAreas - Added global area 'building' containing all doors
+2025-11-26 15:51:33,965 [main] DEBUG baseNoStates.DirectoryPartitions - Returning 3 partitions
+2025-11-26 15:51:33,965 [main] DEBUG baseNoStates.DirectoryPartitions - Returning 3 partitions
+2025-11-26 15:51:33,965 [main] DEBUG baseNoStates.DirectoryAreas - Added 3 partitions
+2025-11-26 15:51:33,965 [main] DEBUG baseNoStates.DirectorySpaces - Returning 9 spaces
+2025-11-26 15:51:33,965 [main] DEBUG baseNoStates.DirectorySpaces - Returning 9 spaces
+2025-11-26 15:51:33,965 [main] DEBUG baseNoStates.DirectoryAreas - Added 9 spaces
+2025-11-26 15:51:33,965 [main] INFO  baseNoStates.DirectoryAreas - Areas initialized successfully. Total areas: 13
+2025-11-26 15:51:33,968 [main] INFO  baseNoStates.WebServer - Server started.
+Listening for connections on port : 8080 ...
+
+2025-11-26 15:51:52,176 [Thread-0] DEBUG baseNoStates.WebServer - sockedthread : 'GET /refresh HTTP/1.1'
+2025-11-26 15:51:52,177 [Thread-0] DEBUG baseNoStates.WebServer - input 'GET /refresh HTTP/1.1'
+2025-11-26 15:51:52,177 [Thread-0] DEBUG baseNoStates.WebServer - method 'GET'
+2025-11-26 15:51:52,177 [Thread-0] DEBUG baseNoStates.WebServer - resource '/refresh'
+2025-11-26 15:51:52,177 [Thread-0] DEBUG baseNoStates.WebServer - '0' 'refresh'
+2025-11-26 15:51:52,177 [Thread-0] DEBUG baseNoStates.WebServer - tokens : 
+2025-11-26 15:51:52,178 [Thread-0] DEBUG baseNoStates.WebServer - 'refresh', 
+2025-11-26 15:51:52,179 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 15:51:52,180 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 15:51:52,180 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 15:51:52,180 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 15:51:52,180 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 15:51:52,180 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 15:51:52,180 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 15:51:52,182 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 15:51:52,183 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 15:51:52,183 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 15:51:52,183 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 15:51:52,183 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 15:51:52,183 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 15:51:52,183 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 15:51:52,183 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 15:51:52,183 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 15:51:52,183 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 15:51:52,183 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 15:51:52,183 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 15:51:52,183 [Thread-0] DEBUG baseNoStates.WebServer - created request 'refresh' 'RequestRefresh{[]}'
+2025-11-26 15:51:52,185 [Thread-0] DEBUG baseNoStates.DirectoryDoors - Returning full door list (9 doors)
+2025-11-26 15:51:52,193 [Thread-0] DEBUG baseNoStates.Door - Door 'D1' serialized to JSON
+2025-11-26 15:51:52,193 [Thread-0] DEBUG baseNoStates.Door - Door 'D2' serialized to JSON
+2025-11-26 15:51:52,193 [Thread-0] DEBUG baseNoStates.Door - Door 'D3' serialized to JSON
+2025-11-26 15:51:52,193 [Thread-0] DEBUG baseNoStates.Door - Door 'D4' serialized to JSON
+2025-11-26 15:51:52,193 [Thread-0] DEBUG baseNoStates.Door - Door 'D5' serialized to JSON
+2025-11-26 15:51:52,193 [Thread-0] DEBUG baseNoStates.Door - Door 'D6' serialized to JSON
+2025-11-26 15:51:52,193 [Thread-0] DEBUG baseNoStates.Door - Door 'D7' serialized to JSON
+2025-11-26 15:51:52,193 [Thread-0] DEBUG baseNoStates.Door - Door 'D8' serialized to JSON
+2025-11-26 15:51:52,193 [Thread-0] DEBUG baseNoStates.Door - Door 'D9' serialized to JSON
+2025-11-26 15:51:52,193 [Thread-0] DEBUG baseNoStates.WebServer - processed request 'refresh' 'RequestRefresh{[{"closed":true,"id":"D1","state":"locked"}, {"closed":true,"id":"D2","state":"locked"}, {"closed":true,"id":"D3","state":"locked"}, {"closed":true,"id":"D4","state":"locked"}, {"closed":true,"id":"D5","state":"locked"}, {"closed":true,"id":"D6","state":"locked"}, {"closed":true,"id":"D7","state":"locked"}, {"closed":true,"id":"D8","state":"locked"}, {"closed":true,"id":"D9","state":"locked"}]}'
+2025-11-26 15:51:52,199 [Thread-0] DEBUG baseNoStates.WebServer - answer
+'HTTP/1.0 200 OK
+Content-type: application/json
+Access-Control-Allow-Origin: *
+
+{"doors":[{"closed":true,"id":"D1","state":"locked"},{"closed":true,"id":"D2","state":"locked"},{"closed":true,"id":"D3","state":"locked"},{"closed":true,"id":"D4","state":"locked"},{"closed":true,"id":"D5","state":"locked"},{"closed":true,"id":"D6","state":"locked"},{"closed":true,"id":"D7","state":"locked"},{"closed":true,"id":"D8","state":"locked"},{"closed":true,"id":"D9","state":"locked"}]}'
+2025-11-26 15:51:57,201 [Thread-1] DEBUG baseNoStates.WebServer - sockedthread : 'GET /reader?credential=11343&action=unlock&datetime=2025-11-26T09:30&doorId=D5 HTTP/1.1'
+2025-11-26 15:51:57,201 [Thread-1] DEBUG baseNoStates.WebServer - input 'GET /reader?credential=11343&action=unlock&datetime=2025-11-26T09:30&doorId=D5 HTTP/1.1'
+2025-11-26 15:51:57,201 [Thread-1] DEBUG baseNoStates.WebServer - method 'GET'
+2025-11-26 15:51:57,201 [Thread-1] DEBUG baseNoStates.WebServer - resource '/reader?credential=11343&action=unlock&datetime=2025-11-26T09:30&doorId=D5'
+2025-11-26 15:51:57,201 [Thread-1] DEBUG baseNoStates.WebServer - '0' 'reader'
+2025-11-26 15:51:57,201 [Thread-1] DEBUG baseNoStates.WebServer - '1' 'credential'
+2025-11-26 15:51:57,206 [Thread-1] DEBUG baseNoStates.WebServer - '2' '11343'
+2025-11-26 15:51:57,206 [Thread-1] DEBUG baseNoStates.WebServer - '3' 'action'
+2025-11-26 15:51:57,206 [Thread-1] DEBUG baseNoStates.WebServer - '4' 'unlock'
+2025-11-26 15:51:57,206 [Thread-1] DEBUG baseNoStates.WebServer - '5' 'datetime'
+2025-11-26 15:51:57,207 [Thread-1] DEBUG baseNoStates.WebServer - '6' '2025-11-26T09:30'
+2025-11-26 15:51:57,207 [Thread-1] DEBUG baseNoStates.WebServer - '7' 'doorId'
+2025-11-26 15:51:57,207 [Thread-1] DEBUG baseNoStates.WebServer - '8' 'D5'
+2025-11-26 15:51:57,207 [Thread-1] DEBUG baseNoStates.WebServer - tokens : 
+2025-11-26 15:51:57,207 [Thread-1] DEBUG baseNoStates.WebServer - 'reader', 
+2025-11-26 15:51:57,207 [Thread-1] DEBUG baseNoStates.WebServer - 'credential', 
+2025-11-26 15:51:57,207 [Thread-1] DEBUG baseNoStates.WebServer - '11343', 
+2025-11-26 15:51:57,207 [Thread-1] DEBUG baseNoStates.WebServer - 'action', 
+2025-11-26 15:51:57,208 [Thread-1] DEBUG baseNoStates.WebServer - 'unlock', 
+2025-11-26 15:51:57,208 [Thread-1] DEBUG baseNoStates.WebServer - 'datetime', 
+2025-11-26 15:51:57,208 [Thread-1] DEBUG baseNoStates.WebServer - '2025-11-26T09:30', 
+2025-11-26 15:51:57,208 [Thread-1] DEBUG baseNoStates.WebServer - 'doorId', 
+2025-11-26 15:51:57,208 [Thread-1] DEBUG baseNoStates.WebServer - 'D5', 
+2025-11-26 15:51:57,208 [Thread-1] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 15:51:57,208 [Thread-1] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 15:51:57,208 [Thread-1] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 15:51:57,209 [Thread-1] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 15:51:57,209 [Thread-1] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 15:51:57,209 [Thread-1] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 15:51:57,209 [Thread-1] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 15:51:57,209 [Thread-1] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 15:51:57,209 [Thread-1] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 15:51:57,210 [Thread-1] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 15:51:57,211 [Thread-1] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 15:51:57,213 [Thread-1] DEBUG baseNoStates.WebServer - created request 'reader' 'Request{credential=11343, userName=unknown, action=unlock, now=2025-11-26T09:30, doorID=D5, authorized=, closed=falsefalse, reasons=[]}'
+2025-11-26 15:51:57,221 [Thread-1] DEBUG baseNoStates.DirectoryUsers - Searching for user with credential '11343'
+2025-11-26 15:51:57,221 [Thread-1] INFO  baseNoStates.DirectoryUsers - User 'User{name=Ana, credential=11343}' found for credential '11343'
+2025-11-26 15:51:57,221 [Thread-1] DEBUG baseNoStates.DirectoryDoors - Searching for door with id 'D5'
+2025-11-26 15:51:57,221 [Thread-1] INFO  baseNoStates.DirectoryDoors - Door 'D5' found
+2025-11-26 15:51:57,221 [Thread-1] DEBUG baseNoStates.Door - Processing request for door 'D5' with action 'unlock'
+2025-11-26 15:51:57,221 [Thread-1] DEBUG baseNoStates.Door - Executing action 'unlock' on door 'D5'
+2025-11-26 15:51:57,221 [Thread-1] INFO  baseNoStates.Locked - Door 'D5' unlocked
+2025-11-26 15:51:57,221 [Thread-1] INFO  baseNoStates.Door - Door 'D5' transitioned to state 'unlocked'
+2025-11-26 15:51:57,221 [Thread-1] INFO  baseNoStates.Door - Authorized request on door 'D5' with action 'unlock'
+2025-11-26 15:51:57,221 [Thread-1] DEBUG baseNoStates.WebServer - processed request 'reader' 'Request{credential=11343, userName=unknown, action=unlock, now=2025-11-26T09:30, doorID=D5, authorized=, closed=truetrue, reasons=[]}'
+2025-11-26 15:51:57,221 [Thread-1] DEBUG baseNoStates.WebServer - answer
+'HTTP/1.0 200 OK
+Content-type: application/json
+Access-Control-Allow-Origin: *
+
+{"reasons":[],"authorized":true,"action":"unlock","closed":true,"state":"unlocked","doorId":"D5"}'
+2025-11-26 15:55:59,223 [main] INFO  baseNoStates.DirectoryDoors - Initializing doors...
+2025-11-26 15:55:59,228 [main] INFO  baseNoStates.Door - Door 'D1' created (from='exterior', to='parking', partition='basement')
+2025-11-26 15:55:59,230 [main] INFO  baseNoStates.Door - Door 'D2' created (from='stairs', to='parking', partition='basement')
+2025-11-26 15:55:59,230 [main] INFO  baseNoStates.Door - Door 'D3' created (from='exterior', to='hall', partition='ground_floor')
+2025-11-26 15:55:59,230 [main] INFO  baseNoStates.Door - Door 'D4' created (from='stairs', to='hall', partition='ground_floor')
+2025-11-26 15:55:59,230 [main] INFO  baseNoStates.Door - Door 'D5' created (from='hall', to='room1', partition='ground_floor')
+2025-11-26 15:55:59,230 [main] INFO  baseNoStates.Door - Door 'D6' created (from='hall', to='room2', partition='ground_floor')
+2025-11-26 15:55:59,230 [main] INFO  baseNoStates.Door - Door 'D7' created (from='stairs', to='corridor', partition='floor1')
+2025-11-26 15:55:59,230 [main] INFO  baseNoStates.Door - Door 'D8' created (from='corridor', to='room3', partition='floor1')
+2025-11-26 15:55:59,230 [main] INFO  baseNoStates.Door - Door 'D9' created (from='corridor', to='IT', partition='floor1')
+2025-11-26 15:55:59,230 [main] DEBUG baseNoStates.DirectoryDoors - Total doors initialized: 9
+2025-11-26 15:55:59,230 [main] INFO  baseNoStates.DirectoryDoors - Doors initialized successfully.
+2025-11-26 15:55:59,236 [main] INFO  baseNoStates.DirectoryUsers - Initializing users...
+2025-11-26 15:55:59,237 [main] INFO  baseNoStates.DirectoryUsers - Users initialized successfully. Total users: 7
+2025-11-26 15:55:59,241 [main] INFO  baseNoStates.DirectoryAreas - Initializing areas...
+2025-11-26 15:55:59,242 [main] DEBUG baseNoStates.DirectoryAreas - Creating partitions...
+2025-11-26 15:55:59,245 [main] INFO  baseNoStates.DirectoryPartitions - Initializing partitions...
+2025-11-26 15:58:00,172 [main] INFO  baseNoStates.DirectoryDoors - Initializing doors...
+2025-11-26 15:58:00,175 [main] INFO  baseNoStates.Door - Door 'D1' created (from='exterior', to='parking', partition='basement')
+2025-11-26 15:58:00,176 [main] INFO  baseNoStates.Door - Door 'D2' created (from='stairs', to='parking', partition='basement')
+2025-11-26 15:58:00,176 [main] INFO  baseNoStates.Door - Door 'D3' created (from='exterior', to='hall', partition='ground_floor')
+2025-11-26 15:58:00,177 [main] INFO  baseNoStates.Door - Door 'D4' created (from='stairs', to='hall', partition='ground_floor')
+2025-11-26 15:58:00,177 [main] INFO  baseNoStates.Door - Door 'D5' created (from='hall', to='room1', partition='ground_floor')
+2025-11-26 15:58:00,177 [main] INFO  baseNoStates.Door - Door 'D6' created (from='hall', to='room2', partition='ground_floor')
+2025-11-26 15:58:00,177 [main] INFO  baseNoStates.Door - Door 'D7' created (from='stairs', to='corridor', partition='floor1')
+2025-11-26 15:58:00,177 [main] INFO  baseNoStates.Door - Door 'D8' created (from='corridor', to='room3', partition='floor1')
+2025-11-26 15:58:00,177 [main] INFO  baseNoStates.Door - Door 'D9' created (from='corridor', to='IT', partition='floor1')
+2025-11-26 15:58:00,177 [main] DEBUG baseNoStates.DirectoryDoors - Total doors initialized: 9
+2025-11-26 15:58:00,177 [main] INFO  baseNoStates.DirectoryDoors - Doors initialized successfully.
+2025-11-26 15:58:00,177 [main] INFO  baseNoStates.DirectoryUsers - Initializing users...
+2025-11-26 15:58:00,177 [main] INFO  baseNoStates.DirectoryUsers - Users initialized successfully. Total users: 7
+2025-11-26 15:58:00,178 [main] INFO  baseNoStates.DirectoryAreas - Initializing areas...
+2025-11-26 15:58:00,178 [main] DEBUG baseNoStates.DirectoryAreas - Ensuring DirectoryDoors is initialized...
+2025-11-26 15:58:00,178 [main] DEBUG baseNoStates.DirectoryAreas - Creating partitions...
+2025-11-26 15:58:00,178 [main] INFO  baseNoStates.DirectoryPartitions - Initializing partitions...
+2025-11-26 16:01:21,188 [main] INFO  baseNoStates.DirectoryDoors - Initializing doors...
+2025-11-26 16:01:21,192 [main] INFO  baseNoStates.Door - Door 'D1' created (from='exterior', to='parking', partition='basement')
+2025-11-26 16:01:21,193 [main] INFO  baseNoStates.Door - Door 'D2' created (from='stairs', to='parking', partition='basement')
+2025-11-26 16:01:21,193 [main] INFO  baseNoStates.Door - Door 'D3' created (from='exterior', to='hall', partition='ground_floor')
+2025-11-26 16:01:21,194 [main] INFO  baseNoStates.Door - Door 'D4' created (from='stairs', to='hall', partition='ground_floor')
+2025-11-26 16:01:21,194 [main] INFO  baseNoStates.Door - Door 'D5' created (from='hall', to='room1', partition='ground_floor')
+2025-11-26 16:01:21,194 [main] INFO  baseNoStates.Door - Door 'D6' created (from='hall', to='room2', partition='ground_floor')
+2025-11-26 16:01:21,194 [main] INFO  baseNoStates.Door - Door 'D7' created (from='stairs', to='corridor', partition='floor1')
+2025-11-26 16:01:21,194 [main] INFO  baseNoStates.Door - Door 'D8' created (from='corridor', to='room3', partition='floor1')
+2025-11-26 16:01:21,194 [main] INFO  baseNoStates.Door - Door 'D9' created (from='corridor', to='IT', partition='floor1')
+2025-11-26 16:01:21,194 [main] DEBUG baseNoStates.DirectoryDoors - Total doors initialized: 9
+2025-11-26 16:01:21,194 [main] INFO  baseNoStates.DirectoryDoors - Doors initialized successfully.
+2025-11-26 16:01:21,198 [main] INFO  baseNoStates.DirectoryUsers - Initializing users...
+2025-11-26 16:01:21,199 [main] INFO  baseNoStates.DirectoryUsers - Users initialized successfully. Total users: 7
+2025-11-26 16:01:21,200 [main] INFO  baseNoStates.DirectoryAreas - Initializing areas...
+2025-11-26 16:01:21,200 [main] DEBUG baseNoStates.DirectoryAreas - Creating partitions...
+2025-11-26 16:01:21,204 [main] INFO  baseNoStates.DirectoryPartitions - Initializing partitions...
+2025-11-26 16:01:21,204 [main] DEBUG baseNoStates.DirectoryPartitions - Creating partition 'basement'
+2025-11-26 16:01:21,205 [main] DEBUG baseNoStates.DirectoryPartitions - Searching doors for partition 'basement'
+2025-11-26 16:01:21,205 [main] DEBUG baseNoStates.DirectoryDoors - Returning full door list (9 doors)
+2025-11-26 16:01:21,205 [main] DEBUG baseNoStates.DirectoryPartitions - Door 'D1' added to partition 'basement'
+2025-11-26 16:01:21,205 [main] DEBUG baseNoStates.DirectoryPartitions - Door 'D2' added to partition 'basement'
+2025-11-26 16:01:21,208 [main] DEBUG baseNoStates.Area - Area created with id=basement
+2025-11-26 16:01:21,209 [main] INFO  baseNoStates.DirectoryPartitions - Partition 'basement' initialized with 2 doors
+2025-11-26 16:01:21,209 [main] DEBUG baseNoStates.DirectoryPartitions - Creating partition 'ground_floor'
+2025-11-26 16:01:21,209 [main] DEBUG baseNoStates.DirectoryPartitions - Searching doors for partition 'ground_floor'
+2025-11-26 16:01:21,209 [main] DEBUG baseNoStates.DirectoryDoors - Returning full door list (9 doors)
+2025-11-26 16:01:21,209 [main] DEBUG baseNoStates.DirectoryPartitions - Door 'D3' added to partition 'ground_floor'
+2025-11-26 16:01:21,209 [main] DEBUG baseNoStates.DirectoryPartitions - Door 'D4' added to partition 'ground_floor'
+2025-11-26 16:01:21,209 [main] DEBUG baseNoStates.DirectoryPartitions - Door 'D5' added to partition 'ground_floor'
+2025-11-26 16:01:21,209 [main] DEBUG baseNoStates.DirectoryPartitions - Door 'D6' added to partition 'ground_floor'
+2025-11-26 16:01:21,209 [main] DEBUG baseNoStates.Area - Area created with id=ground_floor
+2025-11-26 16:01:21,209 [main] INFO  baseNoStates.DirectoryPartitions - Partition 'ground_floor' initialized with 4 doors
+2025-11-26 16:01:21,209 [main] DEBUG baseNoStates.DirectoryPartitions - Creating partition 'floor1'
+2025-11-26 16:01:21,209 [main] DEBUG baseNoStates.DirectoryPartitions - Searching doors for partition 'floor1'
+2025-11-26 16:01:21,209 [main] DEBUG baseNoStates.DirectoryDoors - Returning full door list (9 doors)
+2025-11-26 16:01:21,209 [main] DEBUG baseNoStates.DirectoryPartitions - Door 'D7' added to partition 'floor1'
+2025-11-26 16:01:21,209 [main] DEBUG baseNoStates.DirectoryPartitions - Door 'D8' added to partition 'floor1'
+2025-11-26 16:01:21,209 [main] DEBUG baseNoStates.DirectoryPartitions - Door 'D9' added to partition 'floor1'
+2025-11-26 16:01:21,209 [main] DEBUG baseNoStates.Area - Area created with id=floor1
+2025-11-26 16:01:21,209 [main] INFO  baseNoStates.DirectoryPartitions - Partition 'floor1' initialized with 3 doors
+2025-11-26 16:01:21,209 [main] INFO  baseNoStates.DirectoryPartitions - Total partitions initialized: 3
+2025-11-26 16:01:21,209 [main] DEBUG baseNoStates.DirectoryAreas - Creating spaces...
+2025-11-26 16:01:21,214 [main] INFO  baseNoStates.DirectorySpaces - Initializing spaces...
+2025-11-26 16:01:21,214 [main] DEBUG baseNoStates.DirectorySpaces - Creating space 'parking'
+2025-11-26 16:01:21,214 [main] DEBUG baseNoStates.DirectorySpaces - Searching doors for space 'parking'
+2025-11-26 16:01:21,214 [main] DEBUG baseNoStates.DirectoryDoors - Returning full door list (9 doors)
+2025-11-26 16:01:21,214 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D1' associated with space 'parking'
+2025-11-26 16:01:21,214 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D2' associated with space 'parking'
+2025-11-26 16:01:21,215 [main] DEBUG baseNoStates.Area - Area created with id=parking
+2025-11-26 16:01:21,215 [main] INFO  baseNoStates.DirectorySpaces - Space 'parking' initialized with 2 doors
+2025-11-26 16:01:21,215 [main] DEBUG baseNoStates.DirectorySpaces - Creating space 'room1'
+2025-11-26 16:01:21,215 [main] DEBUG baseNoStates.DirectorySpaces - Searching doors for space 'room1'
+2025-11-26 16:01:21,215 [main] DEBUG baseNoStates.DirectoryDoors - Returning full door list (9 doors)
+2025-11-26 16:01:21,215 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D5' associated with space 'room1'
+2025-11-26 16:01:21,215 [main] DEBUG baseNoStates.Area - Area created with id=room1
+2025-11-26 16:01:21,215 [main] INFO  baseNoStates.DirectorySpaces - Space 'room1' initialized with 1 doors
+2025-11-26 16:01:21,215 [main] DEBUG baseNoStates.DirectorySpaces - Creating space 'room2'
+2025-11-26 16:01:21,215 [main] DEBUG baseNoStates.DirectorySpaces - Searching doors for space 'room2'
+2025-11-26 16:01:21,215 [main] DEBUG baseNoStates.DirectoryDoors - Returning full door list (9 doors)
+2025-11-26 16:01:21,215 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D6' associated with space 'room2'
+2025-11-26 16:01:21,215 [main] DEBUG baseNoStates.Area - Area created with id=room2
+2025-11-26 16:01:21,215 [main] INFO  baseNoStates.DirectorySpaces - Space 'room2' initialized with 1 doors
+2025-11-26 16:01:21,215 [main] DEBUG baseNoStates.DirectorySpaces - Creating space 'room3'
+2025-11-26 16:01:21,216 [main] DEBUG baseNoStates.DirectorySpaces - Searching doors for space 'room3'
+2025-11-26 16:01:21,216 [main] DEBUG baseNoStates.DirectoryDoors - Returning full door list (9 doors)
+2025-11-26 16:01:21,216 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D8' associated with space 'room3'
+2025-11-26 16:01:21,216 [main] DEBUG baseNoStates.Area - Area created with id=room3
+2025-11-26 16:01:21,216 [main] INFO  baseNoStates.DirectorySpaces - Space 'room3' initialized with 1 doors
+2025-11-26 16:01:21,216 [main] DEBUG baseNoStates.DirectorySpaces - Creating space 'hall'
+2025-11-26 16:01:21,216 [main] DEBUG baseNoStates.DirectorySpaces - Searching doors for space 'hall'
+2025-11-26 16:01:21,216 [main] DEBUG baseNoStates.DirectoryDoors - Returning full door list (9 doors)
+2025-11-26 16:01:21,216 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D3' associated with space 'hall'
+2025-11-26 16:01:21,216 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D4' associated with space 'hall'
+2025-11-26 16:01:21,216 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D5' associated with space 'hall'
+2025-11-26 16:01:21,216 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D6' associated with space 'hall'
+2025-11-26 16:01:21,216 [main] DEBUG baseNoStates.Area - Area created with id=hall
+2025-11-26 16:01:21,216 [main] INFO  baseNoStates.DirectorySpaces - Space 'hall' initialized with 4 doors
+2025-11-26 16:01:21,216 [main] DEBUG baseNoStates.DirectorySpaces - Creating space 'IT'
+2025-11-26 16:01:21,216 [main] DEBUG baseNoStates.DirectorySpaces - Searching doors for space 'IT'
+2025-11-26 16:01:21,216 [main] DEBUG baseNoStates.DirectoryDoors - Returning full door list (9 doors)
+2025-11-26 16:01:21,216 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D9' associated with space 'IT'
+2025-11-26 16:01:21,216 [main] DEBUG baseNoStates.Area - Area created with id=IT
+2025-11-26 16:01:21,216 [main] INFO  baseNoStates.DirectorySpaces - Space 'IT' initialized with 1 doors
+2025-11-26 16:01:21,216 [main] DEBUG baseNoStates.DirectorySpaces - Creating space 'corridor'
+2025-11-26 16:01:21,216 [main] DEBUG baseNoStates.DirectorySpaces - Searching doors for space 'corridor'
+2025-11-26 16:01:21,216 [main] DEBUG baseNoStates.DirectoryDoors - Returning full door list (9 doors)
+2025-11-26 16:01:21,216 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D7' associated with space 'corridor'
+2025-11-26 16:01:21,216 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D8' associated with space 'corridor'
+2025-11-26 16:01:21,216 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D9' associated with space 'corridor'
+2025-11-26 16:01:21,216 [main] DEBUG baseNoStates.Area - Area created with id=corridor
+2025-11-26 16:01:21,216 [main] INFO  baseNoStates.DirectorySpaces - Space 'corridor' initialized with 3 doors
+2025-11-26 16:01:21,217 [main] DEBUG baseNoStates.DirectorySpaces - Creating space 'stairs'
+2025-11-26 16:01:21,217 [main] DEBUG baseNoStates.DirectorySpaces - Searching doors for space 'stairs'
+2025-11-26 16:01:21,217 [main] DEBUG baseNoStates.DirectoryDoors - Returning full door list (9 doors)
+2025-11-26 16:01:21,217 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D2' associated with space 'stairs'
+2025-11-26 16:01:21,217 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D4' associated with space 'stairs'
+2025-11-26 16:01:21,217 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D7' associated with space 'stairs'
+2025-11-26 16:01:21,217 [main] DEBUG baseNoStates.Area - Area created with id=stairs
+2025-11-26 16:01:21,217 [main] INFO  baseNoStates.DirectorySpaces - Space 'stairs' initialized with 3 doors
+2025-11-26 16:01:21,217 [main] DEBUG baseNoStates.DirectorySpaces - Creating space 'exterior'
+2025-11-26 16:01:21,217 [main] DEBUG baseNoStates.DirectorySpaces - Searching doors for space 'exterior'
+2025-11-26 16:01:21,217 [main] DEBUG baseNoStates.DirectoryDoors - Returning full door list (9 doors)
+2025-11-26 16:01:21,217 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D1' associated with space 'exterior'
+2025-11-26 16:01:21,217 [main] DEBUG baseNoStates.DirectorySpaces - Door 'D3' associated with space 'exterior'
+2025-11-26 16:01:21,217 [main] DEBUG baseNoStates.Area - Area created with id=exterior
+2025-11-26 16:01:21,217 [main] INFO  baseNoStates.DirectorySpaces - Space 'exterior' initialized with 2 doors
+2025-11-26 16:01:21,217 [main] INFO  baseNoStates.DirectorySpaces - Total spaces initialized: 9
+2025-11-26 16:01:21,217 [main] DEBUG baseNoStates.DirectoryDoors - Returning full door list (9 doors)
+2025-11-26 16:01:21,217 [main] DEBUG baseNoStates.Area - Area created with id=building
+2025-11-26 16:01:21,217 [main] DEBUG baseNoStates.DirectoryAreas - Added global area 'building' containing all doors
+2025-11-26 16:01:21,217 [main] DEBUG baseNoStates.DirectoryPartitions - Returning 3 partitions
+2025-11-26 16:01:21,217 [main] DEBUG baseNoStates.DirectoryPartitions - Returning 3 partitions
+2025-11-26 16:01:21,217 [main] DEBUG baseNoStates.DirectoryAreas - Added 3 partitions
+2025-11-26 16:01:21,217 [main] DEBUG baseNoStates.DirectorySpaces - Returning 9 spaces
+2025-11-26 16:01:21,217 [main] DEBUG baseNoStates.DirectorySpaces - Returning 9 spaces
+2025-11-26 16:01:21,217 [main] DEBUG baseNoStates.DirectoryAreas - Added 9 spaces
+2025-11-26 16:01:21,217 [main] INFO  baseNoStates.DirectoryAreas - Areas initialized successfully. Total areas: 13
+2025-11-26 16:01:21,218 [main] INFO  baseNoStates.WebServer - Server started.
+Listening for connections on port : 8080 ...
+
+2025-11-26 16:01:27,885 [Thread-0] DEBUG baseNoStates.WebServer - sockedthread : 'GET /refresh HTTP/1.1'
+2025-11-26 16:01:27,886 [Thread-0] DEBUG baseNoStates.WebServer - input 'GET /refresh HTTP/1.1'
+2025-11-26 16:01:27,886 [Thread-0] DEBUG baseNoStates.WebServer - method 'GET'
+2025-11-26 16:01:27,886 [Thread-0] DEBUG baseNoStates.WebServer - resource '/refresh'
+2025-11-26 16:01:27,886 [Thread-0] DEBUG baseNoStates.WebServer - '0' 'refresh'
+2025-11-26 16:01:27,886 [Thread-0] DEBUG baseNoStates.WebServer - tokens : 
+2025-11-26 16:01:27,886 [Thread-0] DEBUG baseNoStates.WebServer - 'refresh', 
+2025-11-26 16:01:27,886 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 16:01:27,886 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 16:01:27,886 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 16:01:27,886 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 16:01:27,888 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 16:01:27,888 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 16:01:27,888 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 16:01:27,888 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 16:01:27,888 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 16:01:27,888 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 16:01:27,888 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 16:01:27,888 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 16:01:27,888 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 16:01:27,888 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 16:01:27,888 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 16:01:27,888 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 16:01:27,888 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 16:01:27,888 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 16:01:27,888 [Thread-0] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 16:01:27,890 [Thread-0] DEBUG baseNoStates.WebServer - created request 'refresh' 'RequestRefresh{[]}'
+2025-11-26 16:01:27,891 [Thread-0] DEBUG baseNoStates.DirectoryDoors - Returning full door list (9 doors)
+2025-11-26 16:01:27,897 [Thread-0] DEBUG baseNoStates.Door - Door 'D1' serialized to JSON
+2025-11-26 16:01:27,898 [Thread-0] DEBUG baseNoStates.Door - Door 'D2' serialized to JSON
+2025-11-26 16:01:27,898 [Thread-0] DEBUG baseNoStates.Door - Door 'D3' serialized to JSON
+2025-11-26 16:01:27,898 [Thread-0] DEBUG baseNoStates.Door - Door 'D4' serialized to JSON
+2025-11-26 16:01:27,898 [Thread-0] DEBUG baseNoStates.Door - Door 'D5' serialized to JSON
+2025-11-26 16:01:27,898 [Thread-0] DEBUG baseNoStates.Door - Door 'D6' serialized to JSON
+2025-11-26 16:01:27,898 [Thread-0] DEBUG baseNoStates.Door - Door 'D7' serialized to JSON
+2025-11-26 16:01:27,898 [Thread-0] DEBUG baseNoStates.Door - Door 'D8' serialized to JSON
+2025-11-26 16:01:27,898 [Thread-0] DEBUG baseNoStates.Door - Door 'D9' serialized to JSON
+2025-11-26 16:01:27,898 [Thread-0] DEBUG baseNoStates.WebServer - processed request 'refresh' 'RequestRefresh{[{"closed":true,"id":"D1","state":"locked"}, {"closed":true,"id":"D2","state":"locked"}, {"closed":true,"id":"D3","state":"locked"}, {"closed":true,"id":"D4","state":"locked"}, {"closed":true,"id":"D5","state":"locked"}, {"closed":true,"id":"D6","state":"locked"}, {"closed":true,"id":"D7","state":"locked"}, {"closed":true,"id":"D8","state":"locked"}, {"closed":true,"id":"D9","state":"locked"}]}'
+2025-11-26 16:01:27,902 [Thread-0] DEBUG baseNoStates.WebServer - answer
+'HTTP/1.0 200 OK
+Content-type: application/json
+Access-Control-Allow-Origin: *
+
+{"doors":[{"closed":true,"id":"D1","state":"locked"},{"closed":true,"id":"D2","state":"locked"},{"closed":true,"id":"D3","state":"locked"},{"closed":true,"id":"D4","state":"locked"},{"closed":true,"id":"D5","state":"locked"},{"closed":true,"id":"D6","state":"locked"},{"closed":true,"id":"D7","state":"locked"},{"closed":true,"id":"D8","state":"locked"},{"closed":true,"id":"D9","state":"locked"}]}'
+2025-11-26 16:01:32,628 [Thread-1] DEBUG baseNoStates.WebServer - sockedthread : 'GET /reader?credential=11343&action=unlock&datetime=2025-11-26T09:30&doorId=D5 HTTP/1.1'
+2025-11-26 16:01:32,628 [Thread-1] DEBUG baseNoStates.WebServer - input 'GET /reader?credential=11343&action=unlock&datetime=2025-11-26T09:30&doorId=D5 HTTP/1.1'
+2025-11-26 16:01:32,628 [Thread-1] DEBUG baseNoStates.WebServer - method 'GET'
+2025-11-26 16:01:32,628 [Thread-1] DEBUG baseNoStates.WebServer - resource '/reader?credential=11343&action=unlock&datetime=2025-11-26T09:30&doorId=D5'
+2025-11-26 16:01:32,628 [Thread-1] DEBUG baseNoStates.WebServer - '0' 'reader'
+2025-11-26 16:01:32,628 [Thread-1] DEBUG baseNoStates.WebServer - '1' 'credential'
+2025-11-26 16:01:32,628 [Thread-1] DEBUG baseNoStates.WebServer - '2' '11343'
+2025-11-26 16:01:32,628 [Thread-1] DEBUG baseNoStates.WebServer - '3' 'action'
+2025-11-26 16:01:32,628 [Thread-1] DEBUG baseNoStates.WebServer - '4' 'unlock'
+2025-11-26 16:01:32,628 [Thread-1] DEBUG baseNoStates.WebServer - '5' 'datetime'
+2025-11-26 16:01:32,628 [Thread-1] DEBUG baseNoStates.WebServer - '6' '2025-11-26T09:30'
+2025-11-26 16:01:32,628 [Thread-1] DEBUG baseNoStates.WebServer - '7' 'doorId'
+2025-11-26 16:01:32,628 [Thread-1] DEBUG baseNoStates.WebServer - '8' 'D5'
+2025-11-26 16:01:32,628 [Thread-1] DEBUG baseNoStates.WebServer - tokens : 
+2025-11-26 16:01:32,628 [Thread-1] DEBUG baseNoStates.WebServer - 'reader', 
+2025-11-26 16:01:32,628 [Thread-1] DEBUG baseNoStates.WebServer - 'credential', 
+2025-11-26 16:01:32,628 [Thread-1] DEBUG baseNoStates.WebServer - '11343', 
+2025-11-26 16:01:32,628 [Thread-1] DEBUG baseNoStates.WebServer - 'action', 
+2025-11-26 16:01:32,628 [Thread-1] DEBUG baseNoStates.WebServer - 'unlock', 
+2025-11-26 16:01:32,628 [Thread-1] DEBUG baseNoStates.WebServer - 'datetime', 
+2025-11-26 16:01:32,628 [Thread-1] DEBUG baseNoStates.WebServer - '2025-11-26T09:30', 
+2025-11-26 16:01:32,633 [Thread-1] DEBUG baseNoStates.WebServer - 'doorId', 
+2025-11-26 16:01:32,633 [Thread-1] DEBUG baseNoStates.WebServer - 'D5', 
+2025-11-26 16:01:32,633 [Thread-1] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 16:01:32,633 [Thread-1] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 16:01:32,634 [Thread-1] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 16:01:32,634 [Thread-1] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 16:01:32,634 [Thread-1] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 16:01:32,634 [Thread-1] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 16:01:32,634 [Thread-1] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 16:01:32,634 [Thread-1] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 16:01:32,634 [Thread-1] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 16:01:32,635 [Thread-1] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 16:01:32,648 [Thread-1] DEBUG baseNoStates.WebServer - 'null', 
+2025-11-26 16:01:32,696 [Thread-1] DEBUG baseNoStates.WebServer - created request 'reader' 'Request{credential=11343, userName=unknown, action=unlock, now=2025-11-26T09:30, doorID=D5, authorized=false, closed=false, reasons=[]}'
+2025-11-26 16:01:32,712 [Thread-1] DEBUG baseNoStates.DirectoryUsers - Searching for user with credential '11343'
+2025-11-26 16:01:32,712 [Thread-1] INFO  baseNoStates.DirectoryUsers - User 'User{name=Ana, credential=11343}' found for credential '11343'
+2025-11-26 16:01:32,712 [Thread-1] DEBUG baseNoStates.DirectoryDoors - Searching for door with id 'D5'
+2025-11-26 16:01:32,712 [Thread-1] INFO  baseNoStates.DirectoryDoors - Door 'D5' found
+2025-11-26 16:01:32,712 [Thread-1] DEBUG baseNoStates.Door - Processing request for door 'D5' with action 'unlock'
+2025-11-26 16:01:32,712 [Thread-1] DEBUG baseNoStates.Door - Executing action 'unlock' on door 'D5'
+2025-11-26 16:01:32,712 [Thread-1] INFO  baseNoStates.Locked - Door 'D5' unlocked
+2025-11-26 16:01:32,712 [Thread-1] INFO  baseNoStates.Door - Door 'D5' transitioned to state 'unlocked'
+2025-11-26 16:01:32,712 [Thread-1] INFO  baseNoStates.Door - Authorized request on door 'D5' with action 'unlock'
+2025-11-26 16:01:32,712 [Thread-1] DEBUG baseNoStates.WebServer - processed request 'reader' 'Request{credential=11343, userName=unknown, action=unlock, now=2025-11-26T09:30, doorID=D5, authorized=true, closed=true, reasons=[]}'
+2025-11-26 16:01:32,888 [Thread-1] DEBUG baseNoStates.WebServer - answer
+'HTTP/1.0 200 OK
+Content-type: application/json
+Access-Control-Allow-Origin: *
+
+{"reasons":[],"authorized":true,"action":"unlock","closed":true,"state":"unlocked","doorId":"D5"}'
+2025-11-26 16:34:43,960 [main] INFO  baseNoStates.DirectoryDoors - Initializing doors...
+2025-11-26 16:34:43,965 [main] INFO  baseNoStates.Door - Door 'D1' created (from='exterior', to='parking', partition='basement')
+2025-11-26 16:34:43,966 [main] INFO  baseNoStates.Door - Door 'D2' created (from='stairs', to='parking', partition='basement')
+2025-11-26 16:34:43,966 [main] INFO  baseNoStates.Door - Door 'D3' created (from='exterior', to='hall', partition='ground_floor')
+2025-11-26 16:34:43,966 [main] INFO  baseNoStates.Door - Door 'D4' created (from='stairs', to='hall', partition='ground_floor')
+2025-11-26 16:34:43,967 [main] INFO  baseNoStates.Door - Door 'D5' created (from='hall', to='room1', partition='ground_floor')
+2025-11-26 16:34:43,967 [main] INFO  baseNoStates.Door - Door 'D6' created (from='hall', to='room2', partition='ground_floor')
+2025-11-26 16:34:43,967 [main] INFO  baseNoStates.Door - Door 'D7' created (from='stairs', to='corridor', partition='floor1')
+2025-11-26 16:34:43,967 [main] INFO  baseNoStates.Door - Door 'D8' created (from='corridor', to='room3', partition='floor1')
+2025-11-26 16:34:43,967 [main] INFO  baseNoStates.Door - Door 'D9' created (from='corridor', to='IT', partition='floor1')
+2025-11-26 16:34:43,967 [main] INFO  baseNoStates.DirectoryDoors - Doors initialized successfully.
+2025-11-26 16:34:43,971 [main] INFO  baseNoStates.DirectoryUsers - Initializing users...
+2025-11-26 16:34:43,972 [main] INFO  baseNoStates.DirectoryUsers - Users initialized successfully. Total users: 7
+2025-11-26 16:34:43,973 [main] INFO  baseNoStates.DirectoryAreas - Initializing areas...
+2025-11-26 16:34:43,973 [main] INFO  baseNoStates.DirectoryPartitions - Initializing partitions...
+2025-11-26 16:34:43,975 [main] INFO  baseNoStates.DirectoryPartitions - Partition 'basement' initialized with 2 doors
+2025-11-26 16:34:43,975 [main] INFO  baseNoStates.DirectoryPartitions - Partition 'ground_floor' initialized with 4 doors
+2025-11-26 16:34:43,975 [main] INFO  baseNoStates.DirectoryPartitions - Partition 'floor1' initialized with 3 doors
+2025-11-26 16:34:43,975 [main] INFO  baseNoStates.DirectoryPartitions - Total partitions initialized: 3
+2025-11-26 16:34:43,976 [main] INFO  baseNoStates.DirectorySpaces - Initializing spaces...
+2025-11-26 16:34:43,976 [main] INFO  baseNoStates.DirectorySpaces - Space 'parking' initialized with 2 doors
+2025-11-26 16:34:43,976 [main] INFO  baseNoStates.DirectorySpaces - Space 'room1' initialized with 1 doors
+2025-11-26 16:34:43,976 [main] INFO  baseNoStates.DirectorySpaces - Space 'room2' initialized with 1 doors
+2025-11-26 16:34:43,976 [main] INFO  baseNoStates.DirectorySpaces - Space 'room3' initialized with 1 doors
+2025-11-26 16:34:43,976 [main] INFO  baseNoStates.DirectorySpaces - Space 'hall' initialized with 4 doors
+2025-11-26 16:34:43,976 [main] INFO  baseNoStates.DirectorySpaces - Space 'IT' initialized with 1 doors
+2025-11-26 16:34:43,976 [main] INFO  baseNoStates.DirectorySpaces - Space 'corridor' initialized with 3 doors
+2025-11-26 16:34:43,976 [main] INFO  baseNoStates.DirectorySpaces - Space 'stairs' initialized with 3 doors
+2025-11-26 16:34:43,976 [main] INFO  baseNoStates.DirectorySpaces - Space 'exterior' initialized with 2 doors
+2025-11-26 16:34:43,976 [main] INFO  baseNoStates.DirectorySpaces - Total spaces initialized: 9
+2025-11-26 16:34:43,976 [main] INFO  baseNoStates.DirectoryAreas - Areas initialized successfully. Total areas: 13
+2025-11-26 16:34:43,982 [main] INFO  baseNoStates.WebServer - Server started.
+Listening for connections on port : 8080 ...
+

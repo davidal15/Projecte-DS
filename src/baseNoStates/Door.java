@@ -2,31 +2,31 @@ package baseNoStates;
 
 import baseNoStates.requests.RequestReader;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-
-/*
- * The Door class Represents a door within the system, including its identifiers,
+/**
+ * The Door class represents a door within the system, including its identifiers,
  * origin and destination locations, associated partition, and state.
- *
+
  * It is responsible for:
  * - Processing incoming requests and delegating behavior to its current DoorState.
  * - Maintaining whether it is closed or open.
  * - Transitioning between states such as locked, unlocked, opened, or closed.
- *
- * Each door knows the Space it opens from and where it leads, allowing navigation ordering.
- * Authorization is checked before executing requested actions.
- * The state pattern is used to encapsulate door behavior based on its current state.
+
+ * Authorization is verified before acting, and state transitions are logged.
  * JSON export is supported for external representation.
  */
-
 public class Door {
+
+  private static final Logger logger = LoggerFactory.getLogger(Door.class);
+
   private final String id;
-  private final String from; // every door needs to know where it opens from and where it leads
-  private final String to;   // in order to order the Spaces
+  private final String from;
+  private final String to;
   private final String partition;
   private boolean closed;
   private DoorState state;
-
 
   public Door(String id, String from, String to, String partition) {
     this.id = id;
@@ -35,29 +35,41 @@ public class Door {
     this.partition = partition;
     this.closed = true;
     this.state = new Locked();
+
+    logger.info("Door '{}' created (from='{}', to='{}', partition='{}')", id, from, to, partition);
   }
 
   public void processRequest(RequestReader request) {
-    // it is the Door that processes the request because the door has and knows
-    // its state, and if it's closed or open
+
+    logger.debug("Processing request for door '{}' with action '{}'", id, request.getAction());
+
     if (request.isAuthorized()) {
       String action = request.getAction();
       doAction(action);
+
+      logger.info("Authorized request on door '{}' with action '{}'", id, action);
+
     } else {
-      System.out.println("not authorized");
+      logger.warn("Unauthorized request on door '{}'", id);
     }
+
     request.setDoorStateName(getStateName());
   }
 
   public void open() {
     closed = false;
+    logger.info("Door '{}' opened", id);
   }
 
   public void close() {
     closed = true;
+    logger.info("Door '{}' closed", id);
   }
 
   private void doAction(String action) {
+
+    logger.debug("Executing action '{}' on door '{}'", action, id);
+
     switch (action) {
       case Actions.OPEN:
         state.open(this);
@@ -72,8 +84,10 @@ public class Door {
         state.unlock(this);
         break;
       case Actions.UNLOCK_SHORTLY:
+        logger.info("Door '{}' temporarily unlocked", id);
         break;
       default:
+        logger.error("Unknown action '{}' attempted on door '{}'", action, id);
         assert false : "Unknown action " + action;
         System.exit(-1);
     }
@@ -87,11 +101,11 @@ public class Door {
     return id;
   }
 
-  public String getFrom() { // returns origin
+  public String getFrom() {
     return from;
   }
 
-  public String getTo() { // returns destination
+  public String getTo() {
     return to;
   }
 
@@ -104,6 +118,7 @@ public class Door {
   }
 
   public void setState(DoorState state) {
+    logger.info("Door '{}' transitioned to state '{}'", id, state.getStateName());
     this.state = state;
   }
 
@@ -121,8 +136,9 @@ public class Door {
     json.put("id", id);
     json.put("state", getStateName());
     json.put("closed", closed);
+
+    logger.debug("Door '{}' serialized to JSON", id);
+
     return json;
   }
-
-
 }

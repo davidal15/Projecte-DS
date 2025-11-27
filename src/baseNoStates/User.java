@@ -17,20 +17,20 @@ public class User {
   }
 
   public String getName() {
-    return name;
+    return this.name;
   }
 
   public String getCredential() {
-    return credential;
+    return this.credential;
   }
 
   public String getRole() {
-    return role;
+    return this.role;
   }
 
   // toString() method returns a readable representation excluding the role.
   @Override
   public String toString() {
-    return "User{name=" + name + ", credential=" + credential + "}";
+    return "name=" + name + ", credential=" + credential;
   }
 }

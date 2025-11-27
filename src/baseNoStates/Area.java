@@ -36,32 +36,7 @@ public abstract class Area {
    * Returns the list of doors giving access to this Area.
    * If the Area is 'building', all doors are returned.
    */
-  public List<Door> getDoorsGivingAccess() {
-
-    logger.info("Computing doors giving access to area {}", id);
-
-    List<Door> allDoors = DirectoryDoors.getInstance().getAllDoors();
-
-    if (this.id.equals("building")) {
-      logger.debug("Area '{}' is building: returning all doors ({})", id, allDoors.size());
-      return allDoors;
-    } else {
-      for (Door door : allDoors) {
-        if (door.getPartition().equals(id) ||
-            door.getFrom().equals(id) ||
-            door.getTo().equals(id)) {
-
-          this.doors.add(door);
-          logger.debug("Door {} provides access to area {}", door.getId(), id);
-        }
-      }
-
-      if (this.doors.isEmpty()) {
-        logger.warn("No doors found for area: {}", this.id);
-      }
-    }
-    return this.doors;
-  }
+  public abstract List<Door> getDoorsGivingAccess();
 
   /**
    * Accepts a visitor that performs an operation on this Area instance.

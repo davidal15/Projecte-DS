@@ -144,11 +144,13 @@ class User {
 
 class Space extends Area{
 + Space(id : String, doors : Door[])
++ getDoorsGivingAccess() : Door[]
 + accept(visitor : AreaVisitor)
 }
 
 class Partition extends Area{
 + Partition(id : String, doors : Door[])
++ getDoorsGivingAccess() : Door[]
 + accept(visitor : AreaVisitor)
 }
 
@@ -158,7 +160,7 @@ abstract class Area {
 + Area(id : String, doors : Door[])
 + getId() : String
 + setDoors(doors : Door[])
-+ getDoorsGivingAccess() : Door[]
++ {abstract} getDoorsGivingAccess() : Door[]
 + {abstract} accept(visitor : AreaVisitor)
 }
 

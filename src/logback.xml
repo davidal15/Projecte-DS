@@ -1,56 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <!-- Console appender -->
+    <!-- Console output -->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%date [%thread] %-5level %logger - %msg%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger - %msg%n</pattern>
         </encoder>
     </appender>
 
-    <!-- Activity log file for user request tracking -->
+    <!-- Activity log: ALL requests must go here -->
     <appender name="ACTIVITY" class="ch.qos.logback.core.FileAppender">
         <file>activity.log</file>
         <append>true</append>
         <encoder>
-            <pattern>%date [%thread] %-5level %logger - %msg%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger - %msg%n</pattern>
         </encoder>
     </appender>
 
     <!-- ========================================================== -->
-    <!-- SELECT ONE MODE BY COMMENTING / UNCOMMENTING               -->
+    <!--                  FITA 2 — REQUEST LOGGING                  -->
     <!-- ========================================================== -->
 
-    <!-- Log ONLY milestone 1 (initial classes) -->
-    <!--
-    <logger name="baseNoStates" level="DEBUG" additivity="false">
-        <appender-ref ref="CONSOLE" />
-    </logger>
-    <root level="WARN">
-        <appender-ref ref="CONSOLE" />
-    </root>
-    -->
-
-    <!-- Log ONLY milestone 2 (requests + webserver) -->
-    <!--
-    <File name="actionsFile" fileName="activity.log" append="true">
-        <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %c - %msg%n"/>
-    </File>
+    <!-- Only log milestone 2 classes (WebServer + Requests) -->
     <logger name="baseNoStates.requests" level="INFO" additivity="false">
-        <AppenderRef ref="ActivityFile"/>
+        <appender-ref ref="ACTIVITY" />
     </logger>
 
     <logger name="baseNoStates.WebServer" level="INFO" additivity="false">
-        <AppenderRef ref="ActivityFile"/>
+        <appender-ref ref="ACTIVITY" />
     </logger>
 
-    <Root level="error">
-            <AppenderRef ref="ActivityFile"/>
-    </Root>
-    -->
-
-    <!-- Log ALL classes -->
-    <root level="INFO">
+    <!-- Root logger (only errors to console + file) -->
+    <root level="ERROR">
         <appender-ref ref="CONSOLE" />
         <appender-ref ref="ACTIVITY" />
     </root>

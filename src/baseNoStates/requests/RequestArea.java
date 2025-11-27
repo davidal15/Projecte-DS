@@ -1,14 +1,14 @@
 package baseNoStates.requests;
 
-import baseNoStates.Actions;
-import baseNoStates.Area;
-import baseNoStates.DirectoryAreas;
-import baseNoStates.Door;
+
+import baseNoStates.*;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 
@@ -18,7 +18,8 @@ public class RequestArea implements Request {
   private final String areaId;
   private final LocalDateTime now;
   private ArrayList<RequestReader> requests = new ArrayList<>();
-
+  private static final Logger logger =
+      LoggerFactory.getLogger(RequestArea.class);
 
   public RequestArea(String credential, String action, LocalDateTime now, String areaId) {
     this.credential = credential;
@@ -49,7 +50,7 @@ public class RequestArea implements Request {
   @Override
   public String toString() {
     String requestsDoorsStr;
-    if (requests.size() == 0) {
+    if (requests.isEmpty()) {
       requestsDoorsStr = "";
     } else {
       requestsDoorsStr = requests.toString();
@@ -67,9 +68,11 @@ public class RequestArea implements Request {
   // them to all of its doors. For some it may be authorized and action will be done, for others
   // it won't be authorized and nothing will happen to them.
   public void process() {
-    // commented out until Area, Space and Partition are implemented
-
-
+    User userName = DirectoryUsers.getInstance().findUserByCredential(credential);
+    logger.info(
+        "Request area userName '{}' action '{}' datetime '{}'\nareaId '{}'",
+        userName.getName(), action, now, areaId
+    );
     // make the door requests and put them into the area request to be authorized later and
     // processed later
     Area area = DirectoryAreas.getInstance().findAreaById(areaId);
@@ -80,13 +83,18 @@ public class RequestArea implements Request {
 
       // Make all the door requests, one for each door in the area, and process them.
       // Look for the doors in the spaces of this area that give access to them.
+      boolean authorized = true;
       for (Door door : area.getDoorsGivingAccess()) {
         RequestReader requestReader = new RequestReader(credential, action, now, door.getId());
         requestReader.process();
         // after process() the area request contains the answer as the answer
         // to each individual door request, that is read by the simulator/Flutter app
         requests.add(requestReader);
+        if (!requestReader.isAuthorized()) {
+          authorized = false;
+        }
       }
+      logger.info("authorized '{}'", authorized);
     }
 
   }

@@ -11,6 +11,8 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class RequestReader implements Request {
   private final String credential; // who
@@ -22,6 +24,8 @@ public class RequestReader implements Request {
   private final ArrayList<String> reasons; // why not authorized
   private String doorStateName;
   private boolean doorClosed;
+  private static final Logger logger =
+      LoggerFactory.getLogger(RequestReader.class);
 
   public RequestReader(String credential, String action, LocalDateTime now, String doorId) {
     this.credential = credential;
@@ -79,6 +83,7 @@ public class RequestReader implements Request {
   // see if the request is authorized and put this into the request, then send it to the door.
   // if authorized, perform the action.
   public void process() {
+
     User user = DirectoryUsers.getInstance().findUserByCredential(credential);
     Door door = DirectoryDoors.getInstance().findDoorById(doorId);
 
@@ -87,7 +92,8 @@ public class RequestReader implements Request {
 
     // this sets the boolean authorize attribute of the request
     door.processRequest(this);
-
+    logger.info("Request Reader userName '{}' action '{}' datetime '{}'\ndoorId '{}'  authorized '{}'",user.getName(), action, now, doorId, authorized
+    );
     // even if not authorized we process the request, so that if desired we could log all
     // the requests made to the server as part of processing the request
     doorClosed = door.isClosed();
@@ -193,7 +199,7 @@ public class RequestReader implements Request {
 
         default:
           authorized = false;
-          System.out.print("This user is " + user.getRole());
+          logger.debug("This user is '{}'", user.getRole());
           break;
       }
 

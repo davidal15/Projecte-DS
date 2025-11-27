@@ -26,7 +26,9 @@ of Webserver
 end note
 
 class DirectoryDoors {
-- {static} allDoors : Door[]
+- INSTANCE : DirectoryDoors
+- allDoors : Door[]
+- DirectoryDoors()
 + {static} makeDoors()
 + {static} findDoorById(id : String) : Door
 + {static} getAllDoors() : Door[]
@@ -36,7 +38,8 @@ DirectoryDoors --> "*" Door : "allDoors"
 Partition --> "*" Area
 
 class DirectoryUsers {
-- {static} users : User[]
+- INSTANCE : DirectoryUsers
+- users : User[]
 + {static} makeUsers()
 + {static} findUserByCredential(credential : String) : User
 }
@@ -44,8 +47,10 @@ class DirectoryUsers {
 DirectoryUsers --> "*" User : "users"
 
 class DirectorySpaces {
--{static} allSpaces : Space[]
+- INSTANCE : DirectorySpaces
+- allSpaces : Space[]
 -{static} spaceNames : String[]
+- DirectorySpaces()
 +{static} makeSpaces()
 +{static} findDoorBySpaceId(id : String) : Door[]
 +{static} getAllSpaces() : Space[]
@@ -54,8 +59,10 @@ class DirectorySpaces {
 DirectorySpaces --> "*" Space : "allSpaces"
 
 class DirectoryPartitions {
--{static} allPartitions : Partition[]
+- INSTANCE : DirectoryPartitions
+- allPartitions : Partition[]
 -{static} partitionNames : String[]
+- DirectoryPartitions()
 +{static} makePartitions()
 +{static} findDoorByPartitionId(id : String) : Door[]
 +{static} getAllPartitions() : Partition[]
@@ -64,7 +71,9 @@ class DirectoryPartitions {
 DirectoryPartitions --> "*" Partition : "allPartitions"
 
 class DirectoryAreas {
-- {static} allAreas : Area[]
+- INSTANCE : DirectoryAreas
+- allAreas : Area[]
+- DirectoryAreas()
 + {static} makeAreas()
 + {static} findAreaById(id : String) : Area
 
@@ -84,6 +93,8 @@ class Door {
 + Door(id : String, from : String, to : String, partition : String)
 + processRequest(request : RequestReader)
 + setState(doorState : DoorState)
++ open()
++ close()
 + toJson() : JSONObject
 + getId() : String
 + getFrom() : String
@@ -133,10 +144,12 @@ class User {
 
 class Space extends Area{
 + Space(id : String, doors : Door[])
++ accept(visitor : AreaVisitor)
 }
 
 class Partition extends Area{
 + Partition(id : String, doors : Door[])
++ accept(visitor : AreaVisitor)
 }
 
 abstract class Area {
@@ -146,7 +159,24 @@ abstract class Area {
 + getId() : String
 + setDoors(doors : Door[])
 + getDoorsGivingAccess() : Door[]
++ {abstract} accept(visitor : AreaVisitor)
 }
+
+interface AreaVisitor {
++ visitSpace(space : Space);
++ visitPartition(partition : Partition);
+}
+
+class FindAreaVisitor implements AreaVisitor {
+- targetId : String
+- result : Area
++ FindAreaVisitor()
++ visitSpace(space : Space);
++ visitPartition(partition : Partition);
++ getResult() : Area
+}
+
+FindAreaVisitor --> "*" Area : result
 
 
 class Main {

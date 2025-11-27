@@ -37,3 +37,164 @@ doorId 'D1'  authorized 'false'
 2025-11-27 15:41:39 [Thread-5] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Eulalia' action 'unlock' datetime '2025-11-27T09:30'
 doorId 'D2'  authorized 'false'
 2025-11-27 15:41:39 [Thread-5] INFO  baseNoStates.requests.RequestArea - authorized 'false'
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.DirectoryDoors - Initializing doors...
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.Door - Door 'D1' created (from='exterior', to='parking', partition='basement')
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.Door - Door 'D2' created (from='stairs', to='parking', partition='basement')
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.Door - Door 'D3' created (from='exterior', to='hall', partition='ground_floor')
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.Door - Door 'D4' created (from='stairs', to='hall', partition='ground_floor')
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.Door - Door 'D5' created (from='hall', to='room1', partition='ground_floor')
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.Door - Door 'D6' created (from='hall', to='room2', partition='ground_floor')
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.Door - Door 'D7' created (from='stairs', to='corridor', partition='floor1')
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.Door - Door 'D8' created (from='corridor', to='room3', partition='floor1')
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.Door - Door 'D9' created (from='corridor', to='IT', partition='floor1')
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.DirectoryDoors - Doors initialized successfully.
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.DirectoryUsers - Initializing users...
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.DirectoryUsers - Users initialized successfully. Total users: 7
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.DirectoryAreas - Initializing areas...
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.DirectoryPartitions - Initializing partitions...
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.DirectoryPartitions - Partition 'basement' initialized with 2 doors
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.DirectoryPartitions - Partition 'ground_floor' initialized with 4 doors
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.DirectoryPartitions - Partition 'floor1' initialized with 3 doors
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.DirectoryPartitions - Total partitions initialized: 3
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.DirectorySpaces - Initializing spaces...
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.DirectorySpaces - Space 'parking' initialized with 2 doors
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.DirectorySpaces - Space 'room1' initialized with 1 doors
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.DirectorySpaces - Space 'room2' initialized with 1 doors
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.DirectorySpaces - Space 'room3' initialized with 1 doors
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.DirectorySpaces - Space 'hall' initialized with 4 doors
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.DirectorySpaces - Space 'IT' initialized with 1 doors
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.DirectorySpaces - Space 'corridor' initialized with 3 doors
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.DirectorySpaces - Space 'stairs' initialized with 3 doors
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.DirectorySpaces - Space 'exterior' initialized with 2 doors
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.DirectorySpaces - Total spaces initialized: 9
+2025-11-27 19:36:48 [main] INFO  baseNoStates.milestone1.DirectoryAreas - Areas initialized successfully. Total areas: 13
+2025-11-27 19:36:48 [main] INFO  baseNoStates.WebServer - Server started.
+Listening for connections on port : 8080 ...
+
+2025-11-27 19:37:07 [Thread-1] INFO  baseNoStates.milestone1.DirectoryUsers - User 'name=Ana, credential=11343' found for credential '11343'
+2025-11-27 19:37:07 [Thread-1] INFO  baseNoStates.milestone1.DirectoryDoors - Door 'D8' found
+2025-11-27 19:37:07 [Thread-1] INFO  baseNoStates.milestone1.Locked - Door 'D8' unlocked
+2025-11-27 19:37:07 [Thread-1] INFO  baseNoStates.milestone1.Door - Authorized request on door 'D8' with action 'unlock'
+2025-11-27 19:37:07 [Thread-1] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D8'  authorized 'true'
+2025-11-27 19:40:15 [main] INFO  baseNoStates.WebServer - Server started.
+Listening for connections on port : 8080 ...
+
+2025-11-27 19:40:25 [Thread-1] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D5'  authorized 'true'
+2025-11-27 19:52:55 [main] INFO  baseNoStates.WebServer - Server started.
+Listening for connections on port : 8080 ...
+
+2025-11-27 19:55:04 [Thread-1] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D5'  authorized 'true'
+2025-11-27 19:56:51 [main] INFO  baseNoStates.WebServer - Server started.
+Listening for connections on port : 8080 ...
+
+2025-11-27 20:05:40 [main] INFO  baseNoStates.WebServer - Server started.
+Listening for connections on port : 8080 ...
+
+2025-11-27 20:06:22 [Thread-1] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D5'  authorized 'true'
+2025-11-27 20:09:31 [main] INFO  baseNoStates.WebServer - Server started.
+Listening for connections on port : 8080 ...
+
+2025-11-27 20:10:42 [main] INFO  baseNoStates.WebServer - Server started.
+Listening for connections on port : 8080 ...
+
+2025-11-27 20:11:08 [Thread-1] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D8'  authorized 'true'
+2025-11-27 20:14:48 [main] INFO  baseNoStates.WebServer - Server started.
+Listening for connections on port : 8080 ...
+
+2025-11-27 20:15:03 [Thread-1] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D8'  authorized 'true'
+2025-11-27 20:17:49 [main] INFO  baseNoStates.WebServer - Server started.
+Listening for connections on port : 8080 ...
+
+2025-11-27 20:18:11 [Thread-1] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'lock' datetime '2025-11-27T09:30'
+doorId 'D8'  authorized 'true'
+2025-11-27 20:18:13 [Thread-2] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D8'  authorized 'true'
+2025-11-27 20:28:24 [main] INFO  baseNoStates.WebServer - Server started.
+Listening for connections on port : 8080 ...
+
+2025-11-27 20:28:58 [Thread-1] INFO  baseNoStates.requests.RequestArea - Request area userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+areaId 'hall'
+2025-11-27 20:28:58 [Thread-1] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D3'  authorized 'true'
+2025-11-27 20:28:58 [Thread-1] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D4'  authorized 'true'
+2025-11-27 20:28:58 [Thread-1] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D5'  authorized 'true'
+2025-11-27 20:28:58 [Thread-1] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D6'  authorized 'true'
+2025-11-27 20:28:58 [Thread-1] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D3'  authorized 'true'
+2025-11-27 20:28:58 [Thread-1] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D4'  authorized 'true'
+2025-11-27 20:28:58 [Thread-1] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D5'  authorized 'true'
+2025-11-27 20:28:58 [Thread-1] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D6'  authorized 'true'
+2025-11-27 20:28:58 [Thread-1] INFO  baseNoStates.requests.RequestArea - authorized 'true'
+2025-11-27 20:30:54 [Thread-2] INFO  baseNoStates.requests.RequestArea - Request area userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+areaId 'corridor'
+2025-11-27 20:30:54 [Thread-2] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D7'  authorized 'true'
+2025-11-27 20:30:54 [Thread-2] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D8'  authorized 'true'
+2025-11-27 20:30:54 [Thread-2] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D9'  authorized 'true'
+2025-11-27 20:30:54 [Thread-2] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D7'  authorized 'true'
+2025-11-27 20:30:54 [Thread-2] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D8'  authorized 'true'
+2025-11-27 20:30:54 [Thread-2] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D9'  authorized 'true'
+2025-11-27 20:30:54 [Thread-2] INFO  baseNoStates.requests.RequestArea - authorized 'true'
+2025-11-27 20:31:10 [Thread-3] INFO  baseNoStates.requests.RequestArea - Request area userName 'Ana' action 'lock' datetime '2025-11-27T09:30'
+areaId 'room3'
+2025-11-27 20:31:10 [Thread-3] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'lock' datetime '2025-11-27T09:30'
+doorId 'D8'  authorized 'true'
+2025-11-27 20:31:10 [Thread-3] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'lock' datetime '2025-11-27T09:30'
+doorId 'D8'  authorized 'true'
+2025-11-27 20:31:10 [Thread-3] INFO  baseNoStates.requests.RequestArea - authorized 'true'
+2025-11-27 20:31:28 [main] INFO  baseNoStates.WebServer - Server started.
+Listening for connections on port : 8080 ...
+
+2025-11-27 20:31:50 [Thread-1] INFO  baseNoStates.requests.RequestArea - Request area userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+areaId 'room3'
+2025-11-27 20:31:50 [Thread-1] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D8'  authorized 'true'
+2025-11-27 20:31:50 [Thread-1] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D8'  authorized 'true'
+2025-11-27 20:31:50 [Thread-1] INFO  baseNoStates.requests.RequestArea - authorized 'true'
+2025-11-27 20:31:57 [Thread-2] INFO  baseNoStates.requests.RequestArea - Request area userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+areaId 'ground_floor'
+2025-11-27 20:31:57 [Thread-2] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D3'  authorized 'true'
+2025-11-27 20:31:57 [Thread-2] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D4'  authorized 'true'
+2025-11-27 20:31:57 [Thread-2] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D5'  authorized 'true'
+2025-11-27 20:31:57 [Thread-2] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D6'  authorized 'true'
+2025-11-27 20:31:57 [Thread-2] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D3'  authorized 'true'
+2025-11-27 20:31:57 [Thread-2] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D4'  authorized 'true'
+2025-11-27 20:31:57 [Thread-2] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D5'  authorized 'true'
+2025-11-27 20:31:57 [Thread-2] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D6'  authorized 'true'
+2025-11-27 20:31:57 [Thread-2] INFO  baseNoStates.requests.RequestArea - authorized 'true'
+2025-11-27 20:42:10 [main] INFO  baseNoStates.WebServer - Server started.
+Listening for connections on port : 8080 ...
+
+2025-11-27 20:42:19 [Thread-1] INFO  baseNoStates.requests.RequestArea - Request area userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+areaId 'room3'
+2025-11-27 20:42:19 [Thread-1] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D8'  authorized 'true'
+2025-11-27 20:42:19 [Thread-1] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-27T09:30'
+doorId 'D8'  authorized 'true'
+2025-11-27 20:42:19 [Thread-1] INFO  baseNoStates.requests.RequestArea - authorized 'true'

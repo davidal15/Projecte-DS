@@ -8,7 +8,7 @@
         </encoder>
     </appender>
 
-    <!-- Activity log: ALL requests must go here -->
+    <!-- Activity log file -->
     <appender name="ACTIVITY" class="ch.qos.logback.core.FileAppender">
         <file>activity.log</file>
         <append>true</append>
@@ -17,11 +17,34 @@
         </encoder>
     </appender>
 
-    <!-- ========================================================== -->
-    <!--                  FITA 2 — REQUEST LOGGING                  -->
-    <!-- ========================================================== -->
 
-    <!-- Only log milestone 2 classes (WebServer + Requests) -->
+
+    <!-- Only log milestone 1 classes
+    <logger name="baseNoStates.milestone1" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE" />
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+    </root>-->
+
+    <!-- Only log milestone 2 classes -->
+    <logger name="baseNoStates.milestone2" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE" />
+    </logger>
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+    </root>-->
+
+    <!-- Log for every class
+        <logger name="baseNoStates" level="INFO" additivity="false">
+            <appender-ref ref="CONSOLE" />
+        </logger>
+        <root level="INFO">
+            <appender-ref ref="CONSOLE" />
+        </root>-->
+
+    <!-- Requests to activity.log file -->
     <logger name="baseNoStates.requests" level="INFO" additivity="false">
         <appender-ref ref="ACTIVITY" />
     </logger>
@@ -30,10 +53,5 @@
         <appender-ref ref="ACTIVITY" />
     </logger>
 
-    <!-- Root logger (only errors to console + file) -->
-    <root level="ERROR">
-        <appender-ref ref="CONSOLE" />
-        <appender-ref ref="ACTIVITY" />
-    </root>
-
+    <root level="OFF" />
 </configuration>

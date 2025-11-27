@@ -1,9 +1,9 @@
 package baseNoStates.requests;
 
-import baseNoStates.DirectoryDoors;
-import baseNoStates.DirectoryUsers;
-import baseNoStates.Door;
-import baseNoStates.User;
+import baseNoStates.milestone1.DirectoryDoors;
+import baseNoStates.milestone1.DirectoryUsers;
+import baseNoStates.milestone1.Door;
+import baseNoStates.milestone1.User;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;

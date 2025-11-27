@@ -1,4 +1,7 @@
-package baseNoStates;
+package baseNoStates.milestone2;
+
+import baseNoStates.milestone1.Partition;
+import baseNoStates.milestone1.Space;
 
 /**
  * AreaVisitor defines the Visitor interface for traversing the building structure.
@@ -11,5 +14,6 @@ package baseNoStates;
  */
 public interface AreaVisitor {
   void visitSpace(Space space);
+
   void visitPartition(Partition partition);
 }

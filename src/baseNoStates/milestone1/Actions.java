@@ -1,4 +1,4 @@
-package baseNoStates;
+package baseNoStates.milestone1;
 
 public final class Actions {
   // possible actions in reader and area requests

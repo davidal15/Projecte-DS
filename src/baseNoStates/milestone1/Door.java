@@ -1,4 +1,4 @@
-package baseNoStates;
+package baseNoStates.milestone1;
 
 import baseNoStates.requests.RequestReader;
 import org.json.JSONObject;

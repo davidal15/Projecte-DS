@@ -1,12 +1,9 @@
 package baseNoStates;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import baseNoStates.requests.Request;
 import baseNoStates.requests.RequestReader;
 import baseNoStates.requests.RequestRefresh;
 import baseNoStates.requests.RequestArea;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -16,6 +13,8 @@ import java.net.Socket;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.StringTokenizer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 // Based on
 // https://www.ssaurel.com/blog/create-a-simple-http-web-server-in-java

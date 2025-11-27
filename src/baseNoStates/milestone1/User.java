@@ -1,4 +1,4 @@
-package baseNoStates;
+package baseNoStates.milestone1;
 
 
 /** Represents a user within the system, including their name,

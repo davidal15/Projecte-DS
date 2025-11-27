@@ -1,11 +1,11 @@
-package baseNoStates;
+package baseNoStates.milestone1;
 
 /** The DoorState class applies the State pattern.
 *  It is an abstract class so the Door might have as many states as
 *  needed without having to modify the code.
-*
+
 *  The code for every method is implemented on the child classes
-*
+
 *  The way to add a new State is simple: add a new child,
 *  and implement each of the abstract methods, depending
 *  on the conditions of the state

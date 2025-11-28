@@ -28,21 +28,21 @@
         <appender-ref ref="CONSOLE" />
     </root>-->
 
-    <!-- Only log milestone 2 classes -->
+    <!-- Only log milestone 2 classes
     <logger name="baseNoStates.milestone2" level="INFO" additivity="false">
         <appender-ref ref="CONSOLE" />
     </logger>
     <root level="INFO">
         <appender-ref ref="CONSOLE" />
-    </root>-->
+    </root> -->
 
-    <!-- Log for every class
+    <!-- Log for every class -->
         <logger name="baseNoStates" level="INFO" additivity="false">
             <appender-ref ref="CONSOLE" />
         </logger>
         <root level="INFO">
             <appender-ref ref="CONSOLE" />
-        </root>-->
+        </root>
 
     <!-- Requests to activity.log file -->
     <logger name="baseNoStates.requests" level="INFO" additivity="false">

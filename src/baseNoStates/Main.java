@@ -12,8 +12,6 @@ public class Main {
     DirectoryDoors.getInstance().makeDoors();
     DirectoryUsers.getInstance().makeUsers();
     DirectoryAreas.getInstance().makeAreas();
-    // Area a = new Area("hall");
-    // System.out.println(a.getDoorsGivingAccess());
     new WebServer();
   }
 }

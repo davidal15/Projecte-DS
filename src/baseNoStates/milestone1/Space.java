@@ -39,6 +39,7 @@ public class Space extends Area {
    * Spaces do not delegate further traversal since they represent leaf nodes
    * in the building hierarchy.
    */
+
   @Override
   public void accept(AreaVisitor visitor) {
     visitor.visitSpace(this);

@@ -29,8 +29,10 @@ public class Unlocked extends DoorState {
 
   @Override
   public void lock(Door door) {
-    logger.info("Door '{}' locked", door.getId());
-    door.setState(new Locked());
+    if (door.isClosed()) {
+      logger.info("Door '{}' locked", door.getId());
+      door.setState(new Locked());
+    }
   }
 
   @Override

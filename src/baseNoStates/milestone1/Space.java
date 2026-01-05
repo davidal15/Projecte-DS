@@ -2,6 +2,9 @@ package baseNoStates.milestone1;
 
 import baseNoStates.milestone2.AreaVisitor;
 import java.util.List;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,20 +22,22 @@ public class Space extends Area {
   public List<Door> getDoorsGivingAccess() {
     logger.info("Computing doors giving access to area {}", id);
 
+    doors.clear();
+
     List<Door> allDoors = DirectoryDoors.getInstance().getAllDoors();
 
     for (Door door : allDoors) {
       if (door.getFrom().equals(id) || door.getTo().equals(id)) {
 
-        this.doors.add(door);
+        doors.add(door);
         logger.debug("Door {} provides access to area {}", door.getId(), id);
       }
     }
 
-    if (this.doors.isEmpty()) {
+    if (doors.isEmpty()) {
       logger.warn("No doors found for area: {}", this.id);
     }
-    return this.doors;
+    return doors;
   }
   /**
    * Accepts a visitor that performs an operation on this Space instance.
@@ -44,5 +49,18 @@ public class Space extends Area {
   public void accept(AreaVisitor visitor) {
     visitor.visitSpace(this);
 
+  }
+
+  @Override
+  public JSONObject toJson(int depth) { // depth not used here
+    JSONObject json = new JSONObject();
+    json.put("class", "space");
+    json.put("id", id);
+    JSONArray jsonDoors = new JSONArray();
+    for (Door d : getDoorsGivingAccess()) {
+      jsonDoors.put(d.toJson());
+    }
+    json.put("access_doors", jsonDoors);
+    return json;
   }
 }

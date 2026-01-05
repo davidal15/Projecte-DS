@@ -26,6 +26,7 @@ public final class DirectoryAreas {
   private static final Logger logger =
       LoggerFactory.getLogger(DirectoryAreas.class);
 
+  private Area rootArea;
   // Singleton instance
   private static final DirectoryAreas INSTANCE = new DirectoryAreas();
 
@@ -66,6 +67,7 @@ public final class DirectoryAreas {
     Area building =
         new Partition("building",
             DirectoryDoors.getInstance().getAllDoors());
+    rootArea = building;
     allAreas.add(building);
     logger.debug("Added global area 'building' containing all doors");
 
@@ -90,28 +92,38 @@ public final class DirectoryAreas {
   public Area findAreaById(String id) {
     logger.debug("Searching for area with id '{}'", id);
 
-    if (id == null) {
-      logger.warn("Attempted to search for an area with null id");
-      return null;
-    }
-
-    FindAreaVisitor visitor = new FindAreaVisitor(id);
-
-    for (Area area : allAreas) {
-      area.accept(visitor);
-      if (visitor.getResult() != null) {
-        break;
-      }
-    }
-
-    Area found = visitor.getResult();
-
-    if (found != null) {
-      logger.info("Area '{}' found", id);
+    if (id.equals("ROOT")) {
+      // Special id that means that the wanted area is the root.
+      // This is because the Flutter app client doesn't know the
+      // id of the root, differently from the simulator
+      return rootArea;
     } else {
-      logger.warn("No area found with id '{}'", id);
-    }
+      if (id == null) {
+        logger.warn("Attempted to search for an area with null id");
+        return null;
+      }
 
-    return found;
+      FindAreaVisitor visitor = new FindAreaVisitor(id);
+
+      for (Area area : allAreas) {
+        area.accept(visitor);
+        if (visitor.getResult() != null) {
+          break;
+        }
+      }
+
+      Area found = visitor.getResult();
+
+      if (found != null) {
+        logger.info("Area '{}' found", id);
+      } else {
+        logger.warn("No area found with id '{}'", id);
+      }
+      return found;
+    }
+  }
+
+  public List<Area> getAllAreas() {
+    return allAreas;
   }
 }

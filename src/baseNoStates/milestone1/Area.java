@@ -3,6 +3,8 @@ package baseNoStates.milestone1;
 import baseNoStates.milestone2.AreaVisitor;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -45,4 +47,6 @@ public abstract class Area {
    * implemented directly inside the Area class.
    */
   abstract void accept(AreaVisitor visitor);
+
+  public abstract JSONObject toJson(int depth);
 }

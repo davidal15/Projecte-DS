@@ -139,8 +139,4 @@ public final class DirectoryAreas {
       return visitor.getResult();
     }
   }
-
-  public List<Area> getAllAreas() {
-    return allAreas;
-  }
 }

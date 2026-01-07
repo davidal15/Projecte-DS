@@ -39,12 +39,12 @@ public class Space extends Area {
     }
     return doors;
   }
+
   /**
    * Accepts a visitor that performs an operation on this Space instance.
    * Spaces do not delegate further traversal since they represent leaf nodes
    * in the building hierarchy.
    */
-
   @Override
   public void accept(AreaVisitor visitor) {
     visitor.visitSpace(this);
@@ -68,6 +68,11 @@ public class Space extends Area {
     return json;
   }
 
+  /**
+   * Next two methods are implemented just
+   * for the flutter app. Returns if an Area is
+   * all locked or unlocked.
+   */
   @Override
   public boolean isLocked() {
     for (Door d : getDoorsGivingAccess()) {

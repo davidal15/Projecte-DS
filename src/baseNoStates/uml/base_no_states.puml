@@ -5,6 +5,7 @@ skinparam classAttributeIconSize 0
 class Webserver {
 - {static} PORT :int
 - {static} FORMATTER : DateTimeFormatter
++ makeRequestChildren(tokens : String[]) : RequestChildren
 + Webserver()
 }
 
@@ -35,7 +36,7 @@ class DirectoryDoors {
 }
 
 DirectoryDoors --> "*" Door : "allDoors"
-Partition --> "*" Area
+Partition --> "*" Area : "areas"
 
 class DirectoryUsers {
 - INSTANCE : DirectoryUsers
@@ -46,38 +47,14 @@ class DirectoryUsers {
 
 DirectoryUsers --> "*" User : "users"
 
-class DirectorySpaces {
-- INSTANCE : DirectorySpaces
-- allSpaces : Space[]
--{static} spaceNames : String[]
-- DirectorySpaces()
-+{static} makeSpaces()
-+{static} findDoorBySpaceId(id : String) : Door[]
-+{static} getAllSpaces() : Space[]
-}
-
-DirectorySpaces --> "*" Space : "allSpaces"
-
-class DirectoryPartitions {
-- INSTANCE : DirectoryPartitions
-- allPartitions : Partition[]
--{static} partitionNames : String[]
-- DirectoryPartitions()
-+{static} makePartitions()
-+{static} findDoorByPartitionId(id : String) : Door[]
-+{static} getAllPartitions() : Partition[]
-}
-
-DirectoryPartitions --> "*" Partition : "allPartitions"
-
 class DirectoryAreas {
 - INSTANCE : DirectoryAreas
 - allAreas : Area[]
 - DirectoryAreas()
+- rootArea : Area
 + {static} makeAreas()
-+ {static} findAreaById(id : String) : Area
-
-
+- addDoorIfFound(list : Door[], id : String)
++ findAreaById(id : String) : Area
 }
 
 DirectoryAreas --> "*" Area : "allAreas"
@@ -146,12 +123,19 @@ class Space extends Area{
 + Space(id : String, doors : Door[])
 + getDoorsGivingAccess() : Door[]
 + accept(visitor : AreaVisitor)
++ toJson(depth : int) : JSONObject
++ isLocked() : boolean
++ isUnlocked() : boolean
 }
 
-class Partition extends Area{
+class Partition extends Area {
+- areas : Area[]
 + Partition(id : String, doors : Door[])
 + getDoorsGivingAccess() : Door[]
 + accept(visitor : AreaVisitor)
++ toJson(depth : int) : JSONObject
++ isLocked() : boolean
++ isUnlocked() : boolean
 }
 
 abstract class Area {
@@ -162,6 +146,9 @@ abstract class Area {
 + setDoors(doors : Door[])
 + {abstract} getDoorsGivingAccess() : Door[]
 + {abstract} accept(visitor : AreaVisitor)
++ {abstract} toJson(depth : int) : JSONObject
++ {abstract} isLocked() : boolean
++ {abstract} isUnlocked() : boolean
 }
 
 interface AreaVisitor {

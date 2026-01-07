@@ -9,6 +9,13 @@ package requests {
     + {abstract} toString() : String
     }
 
+    class RequestChildren implements Request {
+    - areaId : String
+    - jsonTree : jsonObject
+    + answerToJson() : JSONObject
+    + process()
+    + toString() : String
+    }
     class RequestRefresh implements Request {
     - jsonDoors : JSONObject[]
     + answerToJson() : JSONObject

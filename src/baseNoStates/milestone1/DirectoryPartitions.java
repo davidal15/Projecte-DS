@@ -7,11 +7,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * DirectoryPartitions is responsible for defining and initializing
- * all building partitions. Each partition is assigned an identifier
- * and the list of doors that provide access to it.
-
- * Implemented as a singleton so that there is a single shared
- * directory of partitions across the application.
+ * all building partitions.
  */
 public final class DirectoryPartitions {
 
@@ -24,11 +20,6 @@ public final class DirectoryPartitions {
   // List with all partitions
   private List<Partition> allPartitions;
 
-  // Predefined partition names
-  private static final String[] partitionNames = {
-      "basement", "ground_floor", "floor1"
-  };
-
   /**
    * Private constructor to enforce singleton.
    */
@@ -36,69 +27,61 @@ public final class DirectoryPartitions {
     allPartitions = new ArrayList<>();
   }
 
-  /**
-   * Returns the single instance of DirectoryPartitions.
-   *
-   * @return the singleton instance
-   */
   public static DirectoryPartitions getInstance() {
     return INSTANCE;
   }
 
   /**
-   * Creates and initializes all partitions.
-   * This method should be called once at startup.
+   * Creates and initializes all partitions using Spaces instead of Doors.
+   * PREREQUISITE: DirectorySpaces must be initialized first.
    */
   public void makePartitions() {
     logger.info("Initializing partitions...");
 
     allPartitions = new ArrayList<>();
 
-    for (String name : partitionNames) {
-      logger.debug("Creating partition '{}'", name);
-      List<Door> doors = findDoorByPartitionId(name);
-      Partition p = new Partition(name, doors);
-      allPartitions.add(p);
-      logger.info("Partition '{}' initialized with {} doors", name, doors.size());
-    }
+    // Necesitamos acceder a los espacios ya creados
+    DirectorySpaces ds = DirectorySpaces.getInstance();
+
+    // 1. BASEMENT: Contiene 'parking'
+    List<Area> basementChildren = new ArrayList<>();
+    addSpaceIfFound(ds, basementChildren, "parking");
+
+    Partition basement = new Partition("basement", basementChildren);
+    allPartitions.add(basement);
+
+    // 2. GROUND FLOOR: Contiene 'hall', 'room1', 'room2'
+    List<Area> groundChildren = new ArrayList<>();
+    addSpaceIfFound(ds, groundChildren, "hall");
+    addSpaceIfFound(ds, groundChildren, "room1");
+    addSpaceIfFound(ds, groundChildren, "room2");
+
+    Partition groundFloor = new Partition("ground_floor", groundChildren);
+    allPartitions.add(groundFloor);
+
+    // 3. FLOOR 1: Contiene 'room3', 'it', 'corridor'
+    List<Area> floor1Children = new ArrayList<>();
+    addSpaceIfFound(ds, floor1Children, "room3");
+    addSpaceIfFound(ds, floor1Children, "it");
+    addSpaceIfFound(ds, floor1Children, "corridor");
+
+    Partition floor1 = new Partition("floor1", floor1Children);
+    allPartitions.add(floor1);
 
     logger.info("Total partitions initialized: {}", allPartitions.size());
   }
 
-  /**
-   * Finds all doors that belong to a given partition.
-   *
-   * @param partitionName identifier of the partition
-   * @return list of doors that belong to the partition
-   */
-  public List<Door> findDoorByPartitionId(String partitionName) {
-    logger.debug("Searching doors for partition '{}'", partitionName);
-
-    List<Door> doorList = new ArrayList<>();
-    List<Door> allDoors = DirectoryDoors.getInstance().getAllDoors();
-
-    for (Door door : allDoors) {
-      if (door.getPartition().equals(partitionName)) {
-        doorList.add(door);
-        logger.debug("Door '{}' added to partition '{}'",
-            door.getId(), partitionName);
-      }
+  // Método auxiliar para buscar el espacio y añadirlo a la lista de forma segura
+  private void addSpaceIfFound(DirectorySpaces ds, List<Area> children, String id) {
+    Area space = ds.findAreaById(id);
+    if (space != null) {
+      children.add(space);
+    } else {
+      logger.warn("Space '{}' not found in DirectorySpaces. Check initialization order.", id);
     }
-
-    if (doorList.isEmpty()) {
-      logger.warn("No doors found for partition '{}'", partitionName);
-    }
-
-    return doorList;
   }
 
-  /**
-   * Returns the list of all partitions.
-   *
-   * @return list with all partitions
-   */
   public List<Partition> getAllPartitions() {
-    logger.debug("Returning {} partitions", allPartitions.size());
     return allPartitions;
   }
 }

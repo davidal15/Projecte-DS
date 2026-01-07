@@ -49,4 +49,8 @@ public abstract class Area {
   abstract void accept(AreaVisitor visitor);
 
   public abstract JSONObject toJson(int depth);
+
+  public abstract boolean isLocked();
+
+  public abstract boolean isUnlocked();
 }

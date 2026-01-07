@@ -42,3 +42,6 @@ doorId 'D5'  authorized 'true'
 2025-11-28 10:14:02 [Thread-1] INFO  baseNoStates.requests.RequestReader - Request Reader userName 'Ana' action 'unlock' datetime '2025-11-28T09:30'
 doorId 'D6'  authorized 'true'
 2025-11-28 10:14:02 [Thread-1] INFO  baseNoStates.requests.RequestArea - authorized 'true'
+2026-01-05 12:44:13 [main] INFO  baseNoStates.WebServer - Server started.
+Listening for connections on port : 8080 ...
+

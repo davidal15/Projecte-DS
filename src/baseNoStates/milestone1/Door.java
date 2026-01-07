@@ -139,4 +139,12 @@ public class Door {
 
     return json;
   }
+
+  public boolean isLocked() {
+    return "locked".equals(this.state.getStateName());
+  }
+
+  public boolean isUnlocked() {
+    return "unlocked".equals(this.state.getStateName());
+  }
 }

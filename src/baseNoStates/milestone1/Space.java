@@ -52,15 +52,39 @@ public class Space extends Area {
   }
 
   @Override
-  public JSONObject toJson(int depth) { // depth not used here
+  public JSONObject toJson(int depth) {
     JSONObject json = new JSONObject();
     json.put("class", "space");
     json.put("id", id);
+
+    json.put("locked", isLocked());
+    json.put("unlocked", isUnlocked());
+
     JSONArray jsonDoors = new JSONArray();
     for (Door d : getDoorsGivingAccess()) {
       jsonDoors.put(d.toJson());
     }
     json.put("access_doors", jsonDoors);
     return json;
+  }
+
+  @Override
+  public boolean isLocked() {
+    for (Door d : getDoorsGivingAccess()) {
+      if (!d.isLocked()) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  @Override
+  public boolean isUnlocked() {
+    for (Door d : getDoorsGivingAccess()) {
+      if (!d.isUnlocked()) {
+        return false;
+      }
+    }
+    return true;
   }
 }

@@ -102,4 +102,18 @@ public final class DirectorySpaces {
     logger.debug("Returning {} spaces", allSpaces.size());
     return allSpaces;
   }
+
+  /**
+   * Finds a space by its identifier.
+   * NECESSARY for DirectoryPartitions to link spaces.
+   */
+  public Space findAreaById(String id) {
+    for (Space space : allSpaces) {
+      if (space.getId().equals(id)) {
+        return space;
+      }
+    }
+    logger.warn("Space with id '{}' not found", id);
+    return null;
+  }
 }
